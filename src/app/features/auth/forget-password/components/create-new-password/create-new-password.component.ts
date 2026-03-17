@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../../../core/services/auth.service';
 import { ValidationService } from '../../../../../core/services/validation.service';
@@ -15,14 +15,15 @@ export class CreateNewPasswordComponent {
   private readonly authService: AuthService = inject(AuthService);
 
   resetPasswordForm!: FormGroup;
-  isSubmitting = signal(false);
-  submittedOnce = signal(false);
 
   ngOnInit(): void {
-        this.resetPasswordForm = this.fb.group({
-      passwordl: ['', [Validators.required, this.validationService.passwordValidator]],
-      newPassword: ['', [Validators.required],
-    this.validationService.passwordMatchValidator],
+    this.InitForms();
+  }
+
+  InitForms(): void {
+    this.resetPasswordForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      newPassword: ['', [Validators.required, this.validationService.passwordValidator]],
     });
   }
 

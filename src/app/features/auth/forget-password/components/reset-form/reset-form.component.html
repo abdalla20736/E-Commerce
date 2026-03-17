@@ -19,11 +19,11 @@
     ></span>
     <span
       [class]="
-        stepNumber() >= 2
+        stepNumber() === 2
           ? 'bg-primary-600 text-white ring-primary-100'
           : 'bg-slate-100 text-slate-400'
       "
-      class="flex size-10 items-center justify-center rounded-full"
+      class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-400"
     >
       <i class="fas fa-key text-xs"></i>
     </span>
@@ -37,7 +37,7 @@
           ? 'bg-primary-600 text-white ring-primary-100'
           : 'bg-slate-100 text-slate-400'
       "
-      class="flex size-10 items-center justify-center rounded-full "
+      class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-400"
     >
       <i class="fas fa-lock text-xs"></i>
     </span>
