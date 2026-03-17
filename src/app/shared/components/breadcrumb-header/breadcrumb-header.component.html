@@ -1,0 +1,32 @@
+<section [class]="'relative overflow-hidden py-8 md:py-10' + backgroundClass()">
+  <div class="lg:container mx-auto px-4">
+    <nav aria-label="Breadcrumb" class="mb-4 text-sm text-white/90">
+      <ol class="flex items-center gap-2">
+        <li>
+          <a [routerLink]="parentRoute()" class="font-medium hover:text-white">{{
+            parentLabel()
+          }}</a>
+        </li>
+        <li aria-hidden="true" class="text-white/70">/</li>
+        <li class="font-semibold text-white">{{ title() }}</li>
+      </ol>
+    </nav>
+
+    <div class="flex items-center gap-5">
+      <div
+        class="grid size-16 place-items-center rounded-2xl border border-white/15 bg-white/12 shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+      >
+        <i class="fas fa-headset text-2xl text-white" aria-hidden="true"></i>
+      </div>
+
+      <div>
+        <h1 class="text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl">
+          {{ title() }}
+        </h1>
+        <p class="mt-2 text-xl font-semibold text-[#B7F7CF]">
+          {{ subtitle() }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

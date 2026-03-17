@@ -1,0 +1,118 @@
+<section class="min-h-screen py-8 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="mb-8">
+      <div class="text-sm text-gray-500 mb-4">
+        <a
+          routerLink="/home"
+          class="font-medium text-slate-600 hover:text-primary-600 transition-colors"
+          >Home</a
+        >
+        <span class="mx-2">/</span>
+        <span class="font-medium text-slate-900">Shopping Cart</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div
+          class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow-sm"
+        >
+          <app-icon name="cart" width="34" height="30" color="text-white"></app-icon>
+        </div>
+
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Shopping Cart</h1>
+        </div>
+      </div>
+      <p class="text-gray-500 mt-2">
+        You have
+        <span class="font-semibold text-primary-600">1 item</span>
+        in your cart
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1.6fr_0.9fr]">
+      <div class="space-y-6 rounded-2xl">
+        @for (product of cart()?.data?.products; track $index) {
+          <app-cart-product-card [product]="product"></app-cart-product-card>
+        }
+
+        <div
+          class="flex flex-col gap-4 border-t border-slate-200 pt-4 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <a
+            routerLink="/shop"
+            class="inline-flex items-center gap-2 font-medium text-primary-600 hover:text-primary-700"
+          >
+            <span>←</span>
+            Continue Shopping
+          </a>
+
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 font-semibold text-gray-400 transition hover:text-red-500 cursor-pointer"
+          >
+            <i class="fas fa-trash-alt"></i>
+            Clear all items
+          </button>
+        </div>
+      </div>
+
+      <aside class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="bg-slate-900 p-5 rounded-t-2xl">
+          <h2 class="text-lg font-bold text-white">Order Summary</h2>
+        </div>
+
+        <div class="px-5">
+          <div class="mt-5 space-y-4 text-slate-600">
+            <div class="flex items-center justify-between">
+              <span>Subtotal (1 item)</span>
+              <span class="font-semibold">449 EGP</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span>Shipping</span>
+              <span class="font-semibold text-green-600">Calculated at checkout</span>
+            </div>
+
+            <hr class="border-slate-200" />
+
+            <div class="flex items-center justify-between text-lg font-semibold">
+              <span>Estimated Total</span>
+              <span class="text-primary-600">449 EGP</span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="mt-6 w-full rounded-xl bg-primary-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-primary-700 flex gap-3 items-center justify-center cursor-pointer"
+          >
+            <i class="fas fa-user"></i>
+            Login to Checkout
+          </button>
+
+          <p class="mt-3 text-center text-xs text-slate-500">
+            Don't have an account?
+            <a routerLink="/signup" class="font-semibold text-primary-600 hover:text-primary-700"
+              >Sign up</a
+            >
+          </p>
+        </div>
+
+        <ul class="mt-5 space-y-2 text-xs text-slate-500 pb-5 px-5">
+          <li class="flex items-start gap-2">
+            <span class="mt-1 text-emerald-600">✓</span>
+            Your cart items will be saved
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1 text-emerald-600">✓</span>
+            Track your orders easily
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1 text-emerald-600">✓</span>
+            Access exclusive member deals
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+<app-features-section></app-features-section>
