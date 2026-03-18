@@ -1,11 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Component, inject, input, signal } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../../core/services/auth.service';
 import { ValidationService } from '../../../../../core/services/validation.service';
+import { IconComponent } from '../../../../../shared/components/icon/icon.component';
 
 @Component({
   selector: 'app-create-new-password',
-  imports: [],
+  imports: [ReactiveFormsModule, IconComponent],
   templateUrl: './create-new-password.component.html',
   styleUrl: './create-new-password.component.css',
 })
@@ -13,6 +15,13 @@ export class CreateNewPasswordComponent {
   private readonly fb = inject(FormBuilder);
   private readonly validationService: ValidationService = inject(ValidationService);
   private readonly authService: AuthService = inject(AuthService);
+  private readonly toastrService: ToastrService = inject(ToastrService);
+
+  email = input<string>();
+
+  isSubmiting = signal(false);
+  isSubmittedOnce = signal(false);
+  isPasswordShown = signal(false);
 
   resetPasswordForm!: FormGroup;
 
@@ -21,10 +30,20 @@ export class CreateNewPasswordComponent {
   }
 
   InitForms(): void {
-    this.resetPasswordForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      newPassword: ['', [Validators.required, this.validationService.passwordValidator]],
-    });
+    this.resetPasswordForm = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        newPassword: ['', [Validators.required, this.validationService.passwordValidator]],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: [this.validationService.passwordMatchValidator],
+      },
+    );
+  }
+
+  showPassword(): void {
+    this.isPasswordShown.update((prev) => !prev);
   }
 
   resetPassword() {
@@ -34,7 +53,7 @@ export class CreateNewPasswordComponent {
 
       this.authService.resetPassword(email, newPassword).subscribe({
         next: (response) => {
-          console.log('Password reset successful:', response);
+          this.toastrService.success('Password reset successfully!');
         },
         error: (error) => {
           console.error('Error resetting password:', error);

@@ -15,10 +15,20 @@ import { CreateNewPasswordComponent } from '../create-new-password/create-new-pa
 export class ResetFormComponent {
   stepNumber = signal(1);
   email = signal('');
+  title = signal('Forgot Password?');
+  description = signal("No worries, we'll send you a reset code");
 
-  nextStepInit(email: string): void {
+  nextStepInit(email?: string): void {
     this.stepNumber.update((n) => n + 1);
-    this.email.set(email);
+
+    if (email) {
+      this.email.set(email);
+    }
+
+    if (this.stepNumber() > 2) {
+      this.title.set('Create New Password');
+      this.description.set('Your new password must be different from previous passwords');
+    }
   }
 
   backToSendCode(): void {

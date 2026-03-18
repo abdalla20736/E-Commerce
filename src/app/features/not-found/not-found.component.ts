@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { FeatureCardComponent } from "../home/components/why-choose-us/feature-card/feature-card.component";
-import { FeaturesSectionComponent } from "../../shared/components/features-section/features-section.component";
+
+import { FeaturesSectionComponent } from '../../shared/components/features-section/features-section.component';
 
 type Destination = {
   label: string;
@@ -11,7 +11,7 @@ type Destination = {
 
 @Component({
   selector: 'app-not-found',
-  imports: [RouterLink, FeatureCardComponent, FeaturesSectionComponent],
+  imports: [RouterLink, FeaturesSectionComponent],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.css',
 })
