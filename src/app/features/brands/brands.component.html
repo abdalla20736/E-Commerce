@@ -1,8 +1,8 @@
 <app-breadcrumb-header
-  title="Top Brands"
-  subtitle="Shop from your favorite brands"
-  [parentRoutes]="['Home', 'brands']"
-  [parentLabels]="['Home', 'Brands']"
+  [title]="'brands.topBrands' | translate"
+  [subtitle]="'brands.shopFavorite' | translate"
+  [parentRoutes]="['home', 'brands']"
+  [parentLabels]="['breadcrumb.home' | translate, 'breadcrumb.brands' | translate]"
   iconClass="fa-tags"
   classes="bg-gradient-to-br from-violet-600 via-violet-500 to-purple-400"
 ></app-breadcrumb-header>

@@ -15,13 +15,23 @@
   </h1>
 
   <div class="flex items-center gap-1.5 mb-4 text-yellow-500">
-    <i class="fas fa-star text-sm"></i>
-    <i class="fas fa-star text-sm"></i>
-    <i class="fas fa-star text-sm"></i>
-    <i class="fas fa-star text-sm"></i>
-    <i class="far fa-star text-sm"></i>
+    @for (star of [1, 2, 3, 4, 5]; track $index) {
+      @switch (getStarType(star)) {
+        @case ('full') {
+          <i class="fas fa-star text-amber-400"></i>
+        }
+        @case ('half') {
+          <i class="fas fa-star-half-stroke text-amber-400"></i>
+        }
+        @case ('empty') {
+          <i class="far fa-star text-amber-400"></i>
+        }
+      }
+    }
     <span class="text-sm text-gray-500 font-medium">{{ product()?.ratingsAverage }}</span>
-    <span class="text-sm text-gray-500 font-medium">({{ reviewsCount() }} {{ 'productDetails.productInfo.reviews' | translate }})</span>
+    <span class="text-sm text-gray-500 font-medium"
+      >({{ reviewsCount() }} {{ 'productDetails.productInfo.reviews' | translate }})</span
+    >
   </div>
 
   <div class="flex flex-col gap-6">
@@ -30,17 +40,27 @@
         {{ product()?.priceAfterDiscount ? product()?.priceAfterDiscount : product()?.price }} EGP
       </span>
       @if (product()?.priceAfterDiscount) {
-        <span class="text-lg text-gray-400 line-through">{{ product()?.priceAfterDiscount }} EGP</span>
+        <span class="text-lg text-gray-400 line-through"
+          >{{ product()?.priceAfterDiscount }} EGP</span
+        >
         <div class="bg-red-500 text-white text-sm px-3 py-1 rounded-full font-medium">
-          <span>{{ 'productDetails.productInfo.save' | translate }} {{ discountPercentage() }}%</span>
+          <span
+            >{{ 'productDetails.productInfo.save' | translate }} {{ discountPercentage() }}%</span
+          >
         </div>
       }
     </div>
 
     <div class="flex pb-6 border-b border-slate-200">
-      <div class="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full bg-green-50 text-green-700">
+      <div
+        class="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full bg-green-50 text-green-700"
+      >
         <span class="rounded-full size-2 bg-green-500"></span>
-        {{ product()?.quantity! > 0 ? ('productDetails.productInfo.inStock' | translate) : ('productDetails.productInfo.outStock' | translate) }}
+        {{
+          product()?.quantity! > 0
+            ? ('productDetails.productInfo.inStock' | translate)
+            : ('productDetails.productInfo.outStock' | translate)
+        }}
       </div>
     </div>
   </div>
@@ -48,13 +68,17 @@
   <div class="text-gray-600 mb-10 leading-relaxed bg-light-gray-bg">
     <p class="pt-5 mb-6">{{ product()?.description }}</p>
 
-    <span class="text-sm text-gray-700 font-medium mb-2">{{ 'productDetails.productInfo.quantity' | translate }}</span>
+    <span class="text-sm text-gray-700 font-medium mb-2">{{
+      'productDetails.productInfo.quantity' | translate
+    }}</span>
     <div class="flex items-center gap-2">
       <div class="flex border border-gray-200 rounded-md text-gray-700">
         <button
           (click)="updateQuantity(-1)"
           class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 cursor-pointer"
-        >-</button>
+        >
+          -
+        </button>
         <input
           (input)="currentQuantity.set($event.target.valueAsNumber)"
           [value]="currentQuantity()"
@@ -65,15 +89,21 @@
         <button
           (click)="updateQuantity(1)"
           class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 cursor-pointer"
-        >+</button>
+        >
+          +
+        </button>
       </div>
-      <span class="text-sm text-gray-500">{{ product()?.quantity }} {{ 'productDetails.productInfo.available' | translate }}</span>
+      <span class="text-sm text-gray-500"
+        >{{ product()?.quantity }} {{ 'productDetails.productInfo.available' | translate }}</span
+      >
     </div>
   </div>
 
   <div class="border-b border-gray-100 flex items-center justify-between">
     <div class="flex items-center justify-between w-full bg-gray-50 rounded-lg p-4 mb-6">
-      <div class="text-sm text-gray-500 mb-1">{{ 'productDetails.productInfo.totalPrice' | translate }}</div>
+      <div class="text-sm text-gray-500 mb-1">
+        {{ 'productDetails.productInfo.totalPrice' | translate }}
+      </div>
       <div class="text-2xl font-bold text-primary-600">{{ totalPrice() }} EGP</div>
     </div>
   </div>
@@ -107,7 +137,11 @@
     <button
       [disabled]="isAddingToWishlist()"
       (click)="addToWishlist()"
-      [class]="isAddedToWishlist() ? 'border-red-200 text-red-600 bg-red-50' : 'border-gray-200 text-gray-700 hover:border-primary-300 hover:text-primary-600'"
+      [class]="
+        isAddedToWishlist()
+          ? 'border-red-200 text-red-600 bg-red-50'
+          : 'border-gray-200 text-gray-700 hover:border-primary-300 hover:text-primary-600'
+      "
       class="flex-1 border-2 py-3 px-4 rounded-xl font-medium transition flex items-center justify-center gap-2 cursor-pointer"
     >
       @if (isAddingToWishlist()) {
@@ -120,39 +154,67 @@
       {{ 'productDetails.productInfo.addToWishlist' | translate }}
     </button>
     <span class="text-gray-200">|</span>
-    <button class="border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl hover:border-primary-300 hover:text-primary-600 transition cursor-pointer">
+    <button
+      class="border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl hover:border-primary-300 hover:text-primary-600 transition cursor-pointer"
+    >
       <i class="fas fa-share-alt"></i>
     </button>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-gray-100 text-center sm:text-left">
-    <div class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200">
-      <div class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-gray-100 text-center sm:text-left"
+  >
+    <div
+      class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200"
+    >
+      <div
+        class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0"
+      >
         <i class="fas fa-truck-fast"></i>
       </div>
       <div>
-        <p class="font-medium text-gray-900 text-sm">{{ 'productDetails.productInfo.freeDelivery' | translate }}</p>
-        <p class="text-xs text-gray-500">{{ 'productDetails.productInfo.freeDeliveryDesc' | translate }}</p>
+        <p class="font-medium text-gray-900 text-sm">
+          {{ 'productDetails.productInfo.freeDelivery' | translate }}
+        </p>
+        <p class="text-xs text-gray-500">
+          {{ 'productDetails.productInfo.freeDeliveryDesc' | translate }}
+        </p>
       </div>
     </div>
 
-    <div class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200">
-      <div class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0">
+    <div
+      class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200"
+    >
+      <div
+        class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0"
+      >
         <i class="fas fa-undo-alt"></i>
       </div>
       <div>
-        <div class="font-medium text-gray-900 text-sm">{{ 'productDetails.productInfo.daysReturn' | translate }}</div>
-        <div class="text-xs text-gray-500">{{ 'productDetails.productInfo.daysReturnDesc' | translate }}</div>
+        <div class="font-medium text-gray-900 text-sm">
+          {{ 'productDetails.productInfo.daysReturn' | translate }}
+        </div>
+        <div class="text-xs text-gray-500">
+          {{ 'productDetails.productInfo.daysReturnDesc' | translate }}
+        </div>
       </div>
     </div>
 
-    <div class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200">
-      <div class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0">
+    <div
+      class="flex items-center gap-4 border border-gray-100 p-4 rounded-lg hover:border-gray-200"
+    >
+      <div
+        class="h-10 w-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center shrink-0"
+      >
         <i class="fas fa-shield-alt"></i>
       </div>
       <div>
-        <div class="font-medium text-gray-900 text-sm">{{ 'productDetails.productInfo.securePayment' | translate }}</div>
-        <div class="text-xs text-gray-500">{{ 'productDetails.productInfo.securePaymentDesc' | translate }}</div>
+        <div class="font-medium text-gray-900 text-sm">
+          {{ 'productDetails.productInfo.securePayment' | translate }}
+        </div>
+        <div class="text-xs text-gray-500">
+          {{ 'productDetails.productInfo.securePaymentDesc' | translate }}
+        </div>
       </div>
     </div>
   </div>

@@ -79,6 +79,7 @@ export class WishlistComponent {
   loadWishlistAsGuest(): void {
     const guestWishlist = this.wishlistService.getGuestWishlist();
     this.wishlist.set(guestWishlist);
+    this.isWishlistLoading.set(false);
   }
 
   loadWishList(): void {

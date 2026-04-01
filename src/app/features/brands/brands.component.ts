@@ -12,6 +12,7 @@ import { ItemsLoaderComponent } from '../../shared/components/items-loader/items
 import { finalize, Observable, switchMap, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-brands',
@@ -21,6 +22,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     BrandCardComponent,
     PaginationComponent,
     ItemsLoaderComponent,
+    TranslatePipe,
   ],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.css',

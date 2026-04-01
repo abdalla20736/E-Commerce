@@ -61,23 +61,27 @@
                   <span class="text-gray-500">{{
                     'productDetails.about.category' | translate
                   }}</span>
-                  <span class="text-gray-900 font-medium">Women fashions</span>
+                  <span class="text-gray-900 font-medium">{{ product()?.title }}</span>
                 </li>
                 <li class="flex justify-between text-sm">
                   <span class="text-gray-500">{{
                     'productDetails.about.subcategory' | translate
                   }}</span>
-                  <span class="text-gray-900 font-medium">Women fashions</span>
+                  <span class="text-gray-900 font-medium">{{
+                    product()?.subcategory?.[0]?.name
+                  }}</span>
                 </li>
                 <li class="flex justify-between text-sm">
                   <span class="text-gray-500">{{ 'productDetails.about.brand' | translate }}</span>
-                  <span class="text-gray-900 font-medium">Women fashions</span>
+                  <span class="text-gray-900 font-medium">{{ product()?.brand?.name }}</span>
                 </li>
                 <li class="flex justify-between text-sm">
                   <span class="text-gray-500">{{
                     'productDetails.about.itemsSold' | translate
                   }}</span>
-                  <span class="text-gray-900 font-medium">Women fashions</span>
+                  <span class="text-gray-900 font-medium"
+                    >{{ product()?.sold }}+ {{ 'productDetails.about.sold' | translate }}</span
+                  >
                 </li>
               </ul>
             </div>

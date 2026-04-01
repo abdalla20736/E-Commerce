@@ -208,7 +208,8 @@
       "premiumQuality": "Premium Quality Product",
       "authenticGuarantee": "100% Authentic Guarantee",
       "fastPackaging": "Fast & Secure Packaging",
-      "qualityTested": "Quality Tested"
+      "qualityTested": "Quality Tested",
+      "sold": "sold"
     },
     "reviews": {
       "basedOn": "Based on {{ count }} reviews",
@@ -263,7 +264,8 @@
       "highlighted": "Like"
     },
     "breadcrumb": {
-      "home": "Home"
+      "home": "Home",
+      "brands": "Brands"
     }
   },
   "reviews": {
@@ -343,5 +345,10 @@
   "categories": {
     "allCategories": "All Categories",
     "subtitle": "Browse our wide range of product categories"
+  },
+  "brands": {
+    "topBrands": "Top Brands",
+    "shopFavorite": "Shop from your favorite brands",
+    "viewProducts": "View Products"
   }
 }
