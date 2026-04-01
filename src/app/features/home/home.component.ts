@@ -5,6 +5,7 @@ import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.c
 import { ShopByCategoryComponent } from './components/shop-by-category/shop-by-category.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { GetFreshestUpdatesComponent } from './components/get-freshest-updates/get-freshest-updates.component';
+import { FeaturesSectionComponent } from "../../shared/components/features-section/features-section.component";
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import { GetFreshestUpdatesComponent } from './components/get-freshest-updates/g
     ShopByCategoryComponent,
     FeaturedProductsComponent,
     GetFreshestUpdatesComponent,
-  ],
+    FeaturesSectionComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

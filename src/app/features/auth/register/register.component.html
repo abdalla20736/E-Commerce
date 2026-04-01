@@ -3,11 +3,10 @@
     <div class="lg:px-2 lg:pt-1">
       <div>
         <h1 class="text-4xl font-bold">
-          Welcome to <span class="text-primary-600">FreshCart</span>
+          {{ 'signup.welcome' | translate }} <span class="text-primary-600">FreshCart</span>
         </h1>
         <p class="text-xl mt-2 mb-4">
-          Join thousands of happy customers who enjoy fresh groceries delivered right to their
-          doorstep.
+          {{ 'signup.subtitle' | translate }}
         </p>
       </div>
 
@@ -19,8 +18,8 @@
             <app-icon name="star" width="19" height="19" color="text-primary-600"></app-icon>
           </span>
           <div>
-            <h2 class="text-lg font-semibold">Premium Quality</h2>
-            <p class="text-gray-600">Premium quality products sourced from trusted suppliers.</p>
+            <h2 class="text-lg font-semibold">{{ 'signup.premiumQuality' | translate }}</h2>
+            <p class="text-gray-600">{{ 'signup.premiumQualityDesc' | translate }}</p>
           </div>
         </div>
 
@@ -36,8 +35,8 @@
             ></app-icon>
           </span>
           <div>
-            <h2 class="text-lg font-semibold">Fast Delivery</h2>
-            <p class="text-gray-600">Same-day delivery available in most areas.</p>
+            <h2 class="text-lg font-semibold">{{ 'signup.fastDelivery' | translate }}</h2>
+            <p class="text-gray-600">{{ 'signup.fastDeliveryDesc' | translate }}</p>
           </div>
         </div>
 
@@ -48,8 +47,8 @@
             <app-icon name="half-shield" width="18" height="19" color="text-primary-600"></app-icon>
           </span>
           <div>
-            <h2 class="text-lg font-semibold">Secure Shopping</h2>
-            <p class="text-gray-600">Your data and payments are completely secure.</p>
+            <h2 class="text-lg font-semibold">{{ 'signup.secureShopping' | translate }}</h2>
+            <p class="text-gray-600">{{ 'signup.secureShoppingDesc' | translate }}</p>
           </div>
         </div>
       </div>
@@ -71,17 +70,18 @@
           </div>
         </div>
         <p class="mt-4 text-gray-600 italic">
-          "FreshCart has transformed my shopping experience. The quality of the products is
-          outstanding, and the delivery is always on time. Highly recommend!"
+          {{ 'signup.testimonial' | translate }}
         </p>
       </article>
     </div>
 
-    <div class="">
+    <div>
       <div class="rounded-2xl bg-white shadow-lg px-6 py-10">
         <div class="text-center">
-          <h2 class="text-3xl font-semibold text-slate-700">Create Your Account</h2>
-          <p class="mt-2 text-base">Start your fresh journey with us today</p>
+          <h2 class="text-3xl font-semibold text-slate-700">
+            {{ 'signup.createAccount' | translate }}
+          </h2>
+          <p class="mt-2 text-base">{{ 'signup.createAccountSubtitle' | translate }}</p>
         </div>
 
         <div class="mt-7 grid gap-3 sm:grid-cols-2">
@@ -103,88 +103,90 @@
 
         <div class="my-6 flex items-center gap-4">
           <div class="h-px flex-1 bg-slate-200"></div>
-          <span>or</span>
+          <span>{{ 'signup.or' | translate }}</span>
           <div class="h-px flex-1 bg-slate-200"></div>
         </div>
 
         <form class="space-y-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div>
-            <label for="name" class="mb-2 block text-sm font-semibold text-slate-700">Name*</label>
+            <label for="name" class="mb-2 block text-sm font-semibold text-slate-700">{{
+              'signup.name' | translate
+            }}</label>
             <input
               id="name"
               type="text"
               formControlName="name"
               value="Ali"
               class="h-12 w-full rounded-md border border-slate-300 px-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-              placeholder="Your full name"
+              [placeholder]="'signup.namePlaceholder' | translate"
             />
             @let nameControl = registerForm.get('name');
             @if (nameControl?.invalid && submittedOnce()) {
-              <p id="name-error" class="text-red-500 text-sm mt-2">
+              <p class="text-red-500 text-sm mt-2">
                 @if (nameControl?.hasError('required')) {
-                  *Please enter your name
+                  {{ 'signup.errors.nameRequired' | translate }}
                 }
                 @if (nameControl?.hasError('minlength')) {
-                  *Name is too short
+                  {{ 'signup.errors.nameTooShort' | translate }}
                 }
               </p>
             }
           </div>
 
           <div>
-            <label for="email" class="mb-2 block text-sm font-semibold text-slate-700"
-              >Email*</label
-            >
+            <label for="email" class="mb-2 block text-sm font-semibold text-slate-700">{{
+              'signup.email' | translate
+            }}</label>
             <input
               id="email"
               type="email"
               formControlName="email"
               value="ali@example.com"
               class="h-12 w-full rounded-md border border-slate-300 px-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-              placeholder="name@example.com"
+              [placeholder]="'signup.emailPlaceholder' | translate"
             />
             @let emailControl = registerForm.get('email');
             @if (emailControl?.invalid && submittedOnce()) {
-              <p id="name-error" class="text-red-500 text-sm mt-2">
+              <p class="text-red-500 text-sm mt-2">
                 @if (emailControl?.hasError('required')) {
-                  *Please enter your email
+                  {{ 'signup.errors.emailRequired' | translate }}
                 }
                 @if (emailControl?.hasError('email')) {
-                  *Invalid email address
+                  {{ 'signup.errors.emailInvalid' | translate }}
                 }
                 @if (emailControl?.hasError('emailTaken')) {
-                  *An account with this email already exists
+                  {{ 'signup.errors.emailTaken' | translate }}
                 }
               </p>
             }
           </div>
 
           <div>
-            <label for="password" class="mb-2 block text-sm font-semibold text-slate-700"
-              >Password*</label
-            >
+            <label for="password" class="mb-2 block text-sm font-semibold text-slate-700">{{
+              'signup.password' | translate
+            }}</label>
             <input
               id="password"
               type="password"
               formControlName="password"
               class="h-12 w-full rounded-md border border-slate-300 px-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-              placeholder="create a strong password"
+              [placeholder]="'signup.passwordPlaceholder' | translate"
             />
             @let passwordControl = registerForm.get('password');
             @if (passwordControl?.invalid && submittedOnce()) {
-              <p id="password-error" class="text-red-500 text-sm mt-2">
+              <p class="text-red-500 text-sm mt-2">
                 @if (passwordControl?.hasError('required')) {
-                  *Please enter a password
+                  {{ 'signup.errors.passwordRequired' | translate }}
                 } @else if (passwordControl?.hasError('minlength')) {
-                  *Password must be at least 8 characters long
+                  {{ 'signup.errors.passwordMinLength' | translate }}
                 } @else if (passwordControl?.hasError('missingUpperCase')) {
-                  *Password must contain at least one uppercase letter
+                  {{ 'signup.errors.passwordUpperCase' | translate }}
                 } @else if (passwordControl?.hasError('missingLowerCase')) {
-                  *Password must contain at least one lowercase letter
+                  {{ 'signup.errors.passwordLowerCase' | translate }}
                 } @else if (passwordControl?.hasError('missingNumber')) {
-                  *Password must contain at least one number
+                  {{ 'signup.errors.passwordNumber' | translate }}
                 } @else if (passwordControl?.hasError('missingSpecialChar')) {
-                  *Password must contain at least one special character
+                  {{ 'signup.errors.passwordSpecialChar' | translate }}
                 }
               </p>
             }
@@ -200,56 +202,57 @@
             </div>
             @if (!passwordControl?.invalid && !submittedOnce()) {
               <p class="mt-2 text-xs text-slate-400">
-                Must be at least 8 characters with numbers and symbols
+                {{ 'signup.passwordHint' | translate }}
               </p>
             }
           </div>
 
           <div>
             <label for="confirm-password" class="mb-2 block text-sm font-semibold text-slate-700">
-              Confirm Password*
+              {{ 'signup.confirmPassword' | translate }}
             </label>
             <input
               id="confirm-password"
               type="password"
               formControlName="rePassword"
               class="h-12 w-full rounded-md border border-slate-300 px-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-              placeholder="confirm your password"
+              [placeholder]="'signup.confirmPasswordPlaceholder' | translate"
             />
             @let confirmPasswordControl = registerForm.get('rePassword');
             @if (
               (registerForm.hasError('passwordMismatch') || confirmPasswordControl?.invalid) &&
               submittedOnce()
             ) {
-              <p id="confirm-password-error" class="text-red-500 text-sm mt-2">
+              <p class="text-red-500 text-sm mt-2">
                 @if (confirmPasswordControl?.hasError('required')) {
-                  *Please confirm your password
+                  {{ 'signup.errors.confirmPasswordRequired' | translate }}
                 } @else if (registerForm.hasError('passwordMismatch')) {
-                  *Passwords do not match
+                  {{ 'signup.errors.passwordMismatch' | translate }}
                 }
               </p>
             }
           </div>
 
           <div>
-            <label for="phone" class="mb-2 block text-sm font-semibold text-slate-700"
-              >Phone Number*</label
-            >
+            <label for="phone" class="mb-2 block text-sm font-semibold text-slate-700">{{
+              'signup.phone' | translate
+            }}</label>
             <input
               id="phone"
               type="tel"
               formControlName="phone"
               class="h-12 w-full rounded-md border border-slate-300 px-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10"
-              placeholder="+1 234 567 8900"
+              [placeholder]="'signup.phonePlaceholder' | translate"
+              dir="ltr"
             />
             @let phoneControl = registerForm.get('phone');
             @if (phoneControl?.invalid && submittedOnce()) {
-              <p id="confirm-password-error" class="text-red-500 text-sm mt-2">
+              <p class="text-red-500 text-sm mt-2">
                 @if (phoneControl?.hasError('required')) {
-                  *Please enter your phone number
+                  {{ 'signup.errors.phoneRequired' | translate }}
                 }
                 @if (phoneControl?.hasError('pattern')) {
-                  *Only Egyptian phone numbers are allowed
+                  {{ 'signup.errors.phonePattern' | translate }}
                 }
               </p>
             }
@@ -263,17 +266,21 @@
                 class="mt-1 size-4 accent-primary-600 rounded border-slate-300 text-emerald-500 focus:ring-emerald-500/20"
               />
               <span>
-                I agree to the
-                <a routerLink="/terms" class="text-primary-600 hover:underline">Terms of Service</a>
-                and
-                <a routerLink="/privacy" class="text-primary-600 hover:underline">Privacy Policy</a>
+                {{ 'signup.agreeTo' | translate }}
+                <a routerLink="/terms" class="text-primary-600 hover:underline">{{
+                  'signup.terms' | translate
+                }}</a>
+                {{ 'signup.and' | translate }}
+                <a routerLink="/privacy" class="text-primary-600 hover:underline">{{
+                  'signup.privacy' | translate
+                }}</a>
                 *
               </span>
             </label>
             @let acceptTermsControl = registerForm.get('acceptTerms');
             @if (acceptTermsControl?.invalid && submittedOnce()) {
-              <p id="accept-terms-error" class="text-red-500 text-sm mt-2">
-                *You must accept the terms and conditions
+              <p class="text-red-500 text-sm mt-2">
+                {{ 'signup.errors.acceptTermsRequired' | translate }}
               </p>
             }
           </div>
@@ -285,17 +292,19 @@
           >
             @if (isSubmittingForm()) {
               <i class="fas fa-spinner fa-spin"></i>
-              Creating  My Account...
+              {{ 'signup.submitting' | translate }}
             } @else {
               <i class="fas fa-user-plus" aria-hidden="true"></i>
-              Create My Account
+              {{ 'signup.submit' | translate }}
             }
           </button>
         </form>
 
         <div class="border-t pt-10 border-gray-300/30 my-4 text-center">
-          Already have an account?
-          <a routerLink="/login" class="text-primary-600 hover:underline font-medium">Sign In</a>
+          {{ 'signup.alreadyHaveAccount' | translate }}
+          <a routerLink="/login" class="text-primary-600 hover:underline font-medium">{{
+            'signup.signin' | translate
+          }}</a>
         </div>
       </div>
     </div>

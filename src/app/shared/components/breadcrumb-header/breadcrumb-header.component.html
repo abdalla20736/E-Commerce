@@ -1,29 +1,45 @@
-<section [class]="'relative overflow-hidden py-8 md:py-10' + backgroundClass()">
-  <div class="lg:container mx-auto px-4">
+<section [class]="'relative overflow-hidden  px-4 py-10 sm:py-14  text-white ' + classes()">
+  <div class="lg:container mx-auto">
     <nav aria-label="Breadcrumb" class="mb-4 text-sm text-white/90">
-      <ol class="flex items-center gap-2">
-        <li>
-          <a [routerLink]="parentRoute()" class="font-medium hover:text-white">{{
-            parentLabel()
-          }}</a>
-        </li>
-        <li aria-hidden="true" class="text-white/70">/</li>
-        <li class="font-semibold text-white">{{ title() }}</li>
+      <ol class="flex items-center gap-2 text-sm text-white/70 mb-6 flex-wrap">
+        @for (link of parentRoutes(); track $index) {
+          @if ($index === parentRoutes().length - 1) {
+            <li [class]="'text-white font-medium ' + lastRouteNameClasses()">
+              {{ parentLabels().at($index) }}
+            </li>
+          } @else {
+            <li>
+              <a
+                [routerLink]="link"
+                [class]="'hover:text-white transition-colors ' + linkClasses()"
+                >{{ parentLabels().at($index) }}</a
+              >
+            </li>
+            <li aria-hidden="true" [class]="'text-white/40 ' + navigationSlashesClasses()">/</li>
+          }
+        }
       </ol>
     </nav>
 
     <div class="flex items-center gap-5">
       <div
-        class="grid size-16 place-items-center rounded-2xl border border-white/15 bg-white/12 shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
+        [class]="
+          'size-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-xl ring-1 ring-white/30 ' +
+          iconBackgroundClass()
+        "
       >
-        <i class="fas fa-headset text-2xl text-white" aria-hidden="true"></i>
+        @if (image() && image() != '') {
+          <img [src]="image()" class="size-10 object-contain" />
+        } @else {
+          <i [class]="'fas text-2xl text-white ' + iconClass()" aria-hidden="true"></i>
+        }
       </div>
 
       <div>
-        <h1 class="text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl">
+        <h1 [class]="'text-3xl sm:text-4xl font-bold tracking-tight ' + titleClasses()">
           {{ title() }}
         </h1>
-        <p class="mt-2 text-xl font-semibold text-[#B7F7CF]">
+        <p [class]="'text-white/80 mt-1 ' + subtitleClasses()">
           {{ subtitle() }}
         </p>
       </div>

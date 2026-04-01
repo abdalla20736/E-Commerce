@@ -19,13 +19,21 @@ import {
   LOWERCASE_PATTERN,
   SPECIAL_PATTERN,
   NUMBER_PATTERN,
+  EGYPTIAN_PHONE_PATTERN,
 } from '../../../core/сonstants/validators.constant';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
-  imports: [RouterLink, FeaturesSectionComponent, IconComponent, ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    FeaturesSectionComponent,
+    IconComponent,
+    ReactiveFormsModule,
+    TranslatePipe,
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -40,27 +48,23 @@ export class RegisterComponent {
   isSubmittingForm = signal(false);
   redirectTimerId!: ReturnType<typeof setTimeout>;
   formOptions!: AbstractControlOptions;
-  registerForm!: FormGroup;
 
-  ngOnInit(): void {
-    this.formOptions = {
-      validators: [this.validationService.passwordMatchValidator],
-    };
-    this.registerForm = this.fb.group(
-      {
-        name: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
-        password: [
-          '',
-          [Validators.required, Validators.minLength(8), this.validationService.passwordValidator],
-        ],
-        rePassword: ['', Validators.required],
-        phone: ['', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]],
-        acceptTerms: [false, Validators.requiredTrue],
-      },
-      this.formOptions,
-    );
-  }
+  registerForm: FormGroup = this.fb.group(
+    {
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(8), this.validationService.passwordValidator],
+      ],
+      rePassword: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(EGYPTIAN_PHONE_PATTERN)]],
+      acceptTerms: [false, Validators.requiredTrue],
+    },
+    {
+      validators: [this.passwordMatchValidator],
+    },
+  );
 
   passwordControl = this.registerForm.get('password')!;
   readonly passwordValue = toSignal(
@@ -103,6 +107,13 @@ export class RegisterComponent {
 
     return 'bg-green-500';
   });
+
+  passwordMatchValidator(gp: AbstractControl) {
+    const password = gp.get('password')?.value;
+    const rePassword = gp.get('rePassword')?.value;
+
+    return password === rePassword ? null : { passwordMismatch: true };
+  }
 
   onSubmit() {
     this.submittedOnce.set(true);

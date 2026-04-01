@@ -39,19 +39,19 @@
                 class="flex flex-col justify-center gap-5 w-full container"
               >
                 <h2 class="text-white text-3xl max-w-90 font-bold">
-                  {{ slide.title }}
+                  {{ slide.title | translate }}
                 </h2>
-                <span class="text-white font-medium">{{ slide.description }}</span>
+                <span class="text-white font-medium">{{ slide.description | translate }}</span>
                 <div class="flex items-center gap-2 w-full flex-wrap">
                   <button
                     class="bg-white text-[#00C950] px-6 py-2 rounded-md hover:bg-white/90 transition font-semibold border-2 border-white cursor-pointer hover:scale-105"
                   >
-                    {{ slide.firstButtonText.text }}
+                    {{ slide.firstButtonText.text | translate }}
                   </button>
                   <button
                     class="bg-transparent border-2 border-white/50 text-white px-6 py-2 rounded-md hover:bg-white hover:text-[#00C950] transition font-semibold cursor-pointer hover:scale-105"
                   >
-                    {{ slide.secondButtonText.text }}
+                    {{ slide.secondButtonText.text | translate }}
                   </button>
                 </div>
               </div>

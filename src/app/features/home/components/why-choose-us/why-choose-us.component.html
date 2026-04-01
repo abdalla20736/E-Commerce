@@ -5,8 +5,8 @@
         <app-feature-card
           [bgColor]="card.bgColor"
           [iconName]="card.iconName"
-          [title]="card.title"
-          [description]="card.description"
+          [title]="card.title | translate"
+          [description]="card.description | translate"
           [iconColor]="card.textColor"
         ></app-feature-card>
       }

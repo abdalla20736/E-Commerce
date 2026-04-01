@@ -7,17 +7,18 @@
       class="inline-flex items-center gap-2 text-sm font-semibold px-3 py-1 rounded-full bg-white/20 text-white mb-4"
     >
       <span>{{ promoCard().icon }}</span>
-      {{ promoCard().badge }}
+      {{ promoCard().badgeKey | translate }}
     </span>
 
-    <h3 class="text-2xl font-bold leading-tight">{{ promoCard().title }}</h3>
-    <p class="text-white/90 mt-3 text-xl">{{ promoCard().description }}</p>
+    <h3 class="text-2xl font-bold leading-tight">{{ promoCard().titleKey | translate }}</h3>
+    <p class="text-white/90 mt-3 text-xl">{{ promoCard().descriptionKey | translate }}</p>
 
     <div class="mt-5 flex items-end gap-3 flex-wrap">
       <span class="text-3xl font-bold tracking-tight">{{ promoCard().discount }}</span>
-      <span class="text-sm text-white/70 pb-1"
-        >Use code: <span class="font-bold text-white">{{ promoCard().code }}</span></span
-      >
+      <span class="text-sm text-white/70 pb-1">
+        {{ 'home.shopbycategory.promos.useCode' | translate }}:
+        <span class="font-bold text-white">{{ promoCard().code }}</span>
+      </span>
     </div>
 
     <button
@@ -27,7 +28,7 @@
         ' mt-7 px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 transition-colors'
       "
     >
-      {{ promoCard().buttonText }}
+      {{ promoCard().buttonKey | translate }}
       <i class="fas fa-arrow-right text-sm"></i>
     </button>
   </div>

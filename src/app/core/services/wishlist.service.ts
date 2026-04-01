@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { WishlistResponse } from '../models/wishlist/wishlist-response.model';
+import { IWishlistResponse } from '../models/wishlist/wishlist-response.model';
+import { StorageService } from './storage.service';
+import { IProduct } from '../models/products/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +12,11 @@ import { WishlistResponse } from '../models/wishlist/wishlist-response.model';
 export class WishlistService {
   private readonly httpClient: HttpClient = inject(HttpClient);
   private readonly baseUrl = environment.baseUrl;
+  private readonly storageService = inject(StorageService);
+  wishlistCount = signal(0);
 
-  getCurrentWishlist(): Observable<WishlistResponse> {
-    return this.httpClient.get<WishlistResponse>(`${this.baseUrl}/v1/wishlist`);
+  getCurrentWishlist(): Observable<IWishlistResponse> {
+    return this.httpClient.get<IWishlistResponse>(`${this.baseUrl}/v1/wishlist`);
   }
 
   addToWishlist(productId: string): Observable<any> {
@@ -23,15 +27,18 @@ export class WishlistService {
     return this.httpClient.delete(`${this.baseUrl}/v1/wishlist/${productId}`);
   }
 
-  // isInWishlist(productId: string): boolean {
-  //   let isInWishlist = false;
-  //   this.getCurrentWishlist().subscribe({
-  //     next: (response) => {
-  //       isInWishlist = response.products.some((product) => product.id === productId);
-  //     },
-  //     error: (error) => {
-  //       console.error('Error fetching wishlist:', error);
-  //     },
-  //   });
-  // }
+  setGuestWithlist(products: IProduct[]): void {
+    this.storageService.setItem('guestWishlist', JSON.stringify(products));
+  }
+
+  getGuestWishlist(): IProduct[] {
+    const wishlist = this.storageService.getItem('guestWishlist');
+    return wishlist ? JSON.parse(wishlist) : [];
+  }
+
+  setCachedWishlistQuantity() {
+    const currentWishlist = this.getGuestWishlist();
+    const currentQuantity = currentWishlist.length;
+    this.wishlistCount.set(currentQuantity);
+  }
 }

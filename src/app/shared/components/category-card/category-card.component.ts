@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { ICategory } from '../../../core/models/categories/category.model';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category-card',
@@ -10,4 +10,5 @@ import { RouterLink } from "@angular/router";
 })
 export class CategoryCardComponent {
   category = input<ICategory>();
+  isShortcutStyle = input(true);
 }

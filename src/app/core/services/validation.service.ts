@@ -34,11 +34,4 @@ export class ValidationService {
 
     return Object.keys(errors).length > 0 ? errors : null;
   }
-
-  passwordMatchValidator(gp: AbstractControl) {
-    const password = gp.get('password')?.value;
-    const rePassword = gp.get('rePassword')?.value;
-
-    return password === rePassword ? null : { passwordMismatch: true };
-  }
 }

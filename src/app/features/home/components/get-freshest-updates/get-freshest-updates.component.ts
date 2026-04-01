@@ -6,10 +6,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { IconComponent } from '../../../../shared/components/icon/icon.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-get-freshest-updates',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IconComponent, TranslatePipe],
   templateUrl: './get-freshest-updates.component.html',
   styleUrl: './get-freshest-updates.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +23,6 @@ export class GetFreshestUpdatesComponent {
   newsletterForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
   });
-
 
   protected onSubmit(): void {
     if (this.newsletterForm.invalid) {

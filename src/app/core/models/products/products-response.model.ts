@@ -2,13 +2,14 @@ import { IProduct } from './product.model';
 
 export interface IProductsResponse {
   results: number;
-  metadata: Metadata;
+  metadata: IMetadata;
   data: IProduct[];
 }
 
-export interface Metadata {
+export interface IMetadata {
   currentPage: number;
   numberOfPages: number;
   limit: number;
-  nextPage: number;
+  nextPage?: number;
+  prevPage?: number;
 }

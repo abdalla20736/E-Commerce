@@ -1,6 +1,6 @@
 import { IProduct } from '../products/product.model';
 
-export interface WishlistResponse {
+export interface IWishlistResponse {
   status: string;
   count: number;
   data: IProduct[];

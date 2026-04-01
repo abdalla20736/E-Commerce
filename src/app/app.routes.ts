@@ -1,4 +1,4 @@
-import { Routes, CanActivateFn } from '@angular/router';
+import { Routes } from '@angular/router';
 import { APP_NAME_SUFFIX } from './core/сonstants/app.constant';
 import { guestGuard } from './core/guards/guest.guard';
 import { authGuard } from './core/guards/auth.guard';
@@ -38,9 +38,81 @@ export const routes: Routes = [
     title: 'Home' + APP_NAME_SUFFIX,
   },
   {
-    path: 'shop',
-    loadComponent: () => import('./features/shop/shop.component').then((m) => m.ShopComponent),
-    title: 'Shop' + APP_NAME_SUFFIX,
+    canActivateChild: [authGuard],
+    path: 'profile',
+    title: 'Profile' + APP_NAME_SUFFIX,
+    loadComponent: () =>
+      import('./features/profile/profile.component').then((m) => m.ProfileComponent),
+    children: [
+      {
+        path: '',
+        redirectTo: 'addresses',
+        pathMatch: 'full',
+      },
+      {
+        canActivate: [authGuard],
+        path: 'addresses',
+        loadComponent: () =>
+          import('./features/profile/components/addresses/addresses.component').then(
+            (m) => m.AddressesComponent,
+          ),
+        title: 'Addresses' + APP_NAME_SUFFIX,
+      },
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('./features/profile/components/settings/settings.component').then(
+            (m) => m.SettingsComponent,
+          ),
+        title: 'Settings' + APP_NAME_SUFFIX,
+      },
+    ],
+  },
+  {
+    path: 'categories',
+    loadComponent: () =>
+      import('./features/categories/categories.component').then((m) => m.CategoriesComponent),
+    title: 'Categories' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'categories/:id',
+    loadComponent: () =>
+      import('./features/category-details/category-details.component').then(
+        (m) => m.CategoryDetailsComponent,
+      ),
+    title: 'Categories' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./features/products/products.component').then((m) => m.ProductsComponent),
+    title: 'Products' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'products/:id',
+    loadComponent: () =>
+      import('./features/product-details/product-details.component').then(
+        (m) => m.ProductDetailsComponent,
+      ),
+    title: 'Products' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'brands',
+    loadComponent: () =>
+      import('./features/brands/brands.component').then((m) => m.BrandsComponent),
+    title: 'Brands' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'search',
+    loadComponent: () =>
+      import('./features/search/search.component').then((m) => m.SearchComponent),
+    title: 'Search' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'wishlist',
+    loadComponent: () =>
+      import('./features/wishlist/wishlist.component').then((m) => m.WishlistComponent),
+    title: 'Wishlist' + APP_NAME_SUFFIX,
   },
   {
     //canActivate: [authGuard],
@@ -48,7 +120,31 @@ export const routes: Routes = [
     loadComponent: () => import('./features/cart/cart.component').then((m) => m.CartComponent),
     title: 'Cart' + APP_NAME_SUFFIX,
   },
-
+  {
+    canActivate: [authGuard],
+    path: 'checkout',
+    loadComponent: () =>
+      import('./features/checkout/checkout.component').then((m) => m.CheckoutComponent),
+    title: 'Checkout' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'allorders',
+    redirectTo: 'orders',
+    pathMatch: 'full',
+  },
+  {
+    canActivate: [authGuard],
+    path: 'orders',
+    loadComponent: () =>
+      import('./features/orders/orders.component').then((m) => m.OrdersComponent),
+    title: 'Orders' + APP_NAME_SUFFIX,
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./features/contact/contact.component').then((m) => m.ContactComponent),
+    title: 'Contact Us' + APP_NAME_SUFFIX,
+  },
   {
     path: '**',
     loadComponent: () =>

@@ -1,16 +1,24 @@
 import { Component, input } from '@angular/core';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumb-header',
-  imports: [RouterLinkWithHref],
+  imports: [RouterLink],
   templateUrl: './breadcrumb-header.component.html',
   styleUrl: './breadcrumb-header.component.css',
 })
 export class BreadcrumbHeaderComponent {
-  backgroundClass = input('bg-linear-to-r from-[#1BAA4B] via-[#23B854] to-[#35C867]');
+  classes = input('bg-linear-to-r from-[#1BAA4B] via-[#23B854] to-[#35C867]');
+  iconClass = input('fa-headset');
   title = input('Contact Us');
   subtitle = input("We'd love to hear from you. Get in touch with our team.");
-  parentLabel = input('Home');
-  parentRoute = input('/home');
+  parentLabels = input<string[]>([]);
+  parentRoutes = input<string[]>([]);
+  image = input('');
+  iconBackgroundClass = input('');
+  titleClasses = input('');
+  subtitleClasses = input('');
+  lastRouteNameClasses = input('');
+  linkClasses = input('');
+  navigationSlashesClasses = input();
 }

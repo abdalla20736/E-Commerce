@@ -13,12 +13,10 @@ export class ProductService {
   private readonly httpClient: HttpClient = inject(HttpClient);
   private readonly baseUrl = environment.baseUrl;
 
-  getProducts(): Observable<IProduct[]> {
-    return this.httpClient.get<IProductsResponse>(`${this.baseUrl}/v1/products`).pipe(
-      map((response: IProductsResponse) => {
-        return response.data;
-      }),
-    );
+  getProducts(params?: any): Observable<IProductsResponse> {
+    return this.httpClient.get<IProductsResponse>(`${this.baseUrl}/v1/products`, {
+      params,
+    });
   }
 
   getProductById(productId: string): Observable<IProduct> {

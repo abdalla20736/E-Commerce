@@ -2,11 +2,11 @@ import { ISubcategory } from './subcategory.model';
 
 export interface ISubcategoriesResponse {
   results: number;
-  metadata: Metadata;
+  metadata: IMetadata;
   data: ISubcategory[];
 }
 
-export interface Metadata {
+export interface IMetadata {
   currentPage: number;
   numberOfPages: number;
   limit: number;

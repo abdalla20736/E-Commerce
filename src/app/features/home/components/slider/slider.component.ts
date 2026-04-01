@@ -9,13 +9,13 @@ import {
 } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 import { ISlideData } from './models/slide-data.model';
-import { LeftArrowIconComponent } from '../icons/left-arrow-icon/left-arrow-icon.component';
-import { RightArrowIconComponent } from '../icons/right-arrow-icon/right-arrow-icon.component';
-import { after } from 'node:test';
+import { LeftArrowIconComponent } from './icons/left-arrow-icon/left-arrow-icon.component';
+import { RightArrowIconComponent } from './icons/right-arrow-icon/right-arrow-icon.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-slider',
-  imports: [LeftArrowIconComponent, RightArrowIconComponent],
+  imports: [LeftArrowIconComponent, RightArrowIconComponent, TranslatePipe],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -73,25 +73,25 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     this.slides = [
       {
-        imageUrl: '/images/slider/home-slider.png',
-        title: 'Fresh Products Delivered to your Door',
-        description: 'Get 20% off your first order',
-        firstButtonText: { text: 'Shop Now', action: '/products' },
-        secondButtonText: { text: 'View Deals', action: '/deals' },
+        imageUrl: 'images/slider/home-slider.png',
+        title: 'home.slider.slide1.title',
+        description: 'home.slider.slide1.description',
+        firstButtonText: { text: 'home.slider.slide1.firstButton', action: '/products' },
+        secondButtonText: { text: 'home.slider.slide1.secondButton', action: '/deals' },
       },
       {
-        imageUrl: '/images/slider/home-slider.png',
-        title: 'Premium Quality Guaranteed',
-        description: 'Fresh from farm to your table',
-        firstButtonText: { text: 'Shop Now', action: '/products' },
-        secondButtonText: { text: 'Learn More', action: '/about' },
+        imageUrl: 'images/slider/home-slider.png',
+        title: 'home.slider.slide2.title',
+        description: 'home.slider.slide2.description',
+        firstButtonText: { text: 'home.slider.slide2.firstButton', action: '/products' },
+        secondButtonText: { text: 'home.slider.slide2.secondButton', action: '/about' },
       },
       {
-        imageUrl: '/images/slider/home-slider.png',
-        title: 'Fast & Free Delivery',
-        description: 'Same day delivery available',
-        firstButtonText: { text: 'Order Now', action: '/products' },
-        secondButtonText: { text: 'Delivery Info', action: '/delivery' },
+        imageUrl: 'images/slider/home-slider.png',
+        title: 'home.slider.slide3.title',
+        description: 'home.slider.slide3.description',
+        firstButtonText: { text: 'home.slider.slide3.firstButton', action: '/products' },
+        secondButtonText: { text: 'home.slider.slide3.secondButton', action: '/delivery' },
       },
     ];
   }

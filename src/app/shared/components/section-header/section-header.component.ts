@@ -9,4 +9,5 @@ import { Component, input } from '@angular/core';
 export class SectionHeaderComponent {
   primaryText = input('Shop By');
   highlightedText = input('Category');
+  class = input();
 }

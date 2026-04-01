@@ -3,7 +3,7 @@ import { Component, input } from '@angular/core';
 @Component({
   selector: 'app-icon',
   imports: [],
-  host: { class: ' inline-flex items-center justify-center' },
+  host: { class: 'flex items-center justify-center ' },
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.css',
 })
