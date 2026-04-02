@@ -6,6 +6,7 @@ import { SendResetCodeComponent } from './components/send-reset-code/send-reset-
 import { VerificationCodeComponent } from './components/verification-code/verification-code.component';
 import { CreateNewPasswordComponent } from './components/create-new-password/create-new-password.component';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reset-form',
@@ -13,7 +14,8 @@ import { RouterLink } from '@angular/router';
     SendResetCodeComponent,
     VerificationCodeComponent,
     CreateNewPasswordComponent,
-    RouterLink,
+    RouterLink, 
+    TranslatePipe,
   ],
   templateUrl: './reset-form.component.html',
   styleUrl: './reset-form.component.css',

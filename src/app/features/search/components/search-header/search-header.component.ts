@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { FiltersMap } from '../../../../shared/types/filters/filters-map.type';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-header',
-  imports: [FormsModule],
+  imports: [FormsModule, TranslatePipe],
   templateUrl: './search-header.component.html',
   styleUrl: './search-header.component.css',
 })
@@ -23,7 +24,6 @@ export class SearchHeaderComponent {
   constructor() {
     this.initSearchByQuery();
     effect(() => {
-
       this.activeFilters.update((current) => ({
         ...current,
         q: this.searchQuery(),

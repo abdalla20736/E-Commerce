@@ -1,14 +1,21 @@
 import { ToastrService } from 'ngx-toastr';
 import { Component, inject, input, output, signal } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../../../../../../core/services/auth.service';
 import { ValidationService } from '../../../../../../../core/services/validation.service';
 import { IconComponent } from '../../../../../../../shared/components/icon/icon.component';
 import { finalize } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-new-password',
-  imports: [ReactiveFormsModule, IconComponent],
+  imports: [ReactiveFormsModule, IconComponent, TranslatePipe],
   templateUrl: './create-new-password.component.html',
   styleUrl: './create-new-password.component.css',
 })

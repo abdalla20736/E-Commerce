@@ -1,8 +1,9 @@
 import { Component, output } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-empty-products-search',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './empty-products-search.component.html',
   styleUrl: './empty-products-search.component.css',
 })

@@ -7,10 +7,11 @@ import { finalize } from 'rxjs';
 import { ICartProductGuest } from '../../../../core/models/cart/cart-product-guest.model';
 import { WishlistService } from '../../../../core/services/wishlist.service';
 import Swal from 'sweetalert2';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wishlist-card',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './wishlist-card.component.html',
   styleUrl: './wishlist-card.component.css',
 })

@@ -19,10 +19,11 @@ import {
 } from '@angular/core';
 import { AddressService } from '../../../../../../core/services/address.service';
 import { finalize } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-addresses',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './create-addresses.component.html',
   styleUrl: './create-addresses.component.css',
 })

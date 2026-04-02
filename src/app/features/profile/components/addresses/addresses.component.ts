@@ -4,10 +4,11 @@ import { CreateAddressesComponent } from './components/create-addresses/create-a
 import { IAddress } from '../../../../core/models/addresses/address.model';
 import { AddressService } from '../../../../core/services/address.service';
 import { AddressCardComponent } from './components/address-card/address-card.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-addresses',
-  imports: [EmptyAddressesComponent, CreateAddressesComponent, AddressCardComponent],
+  imports: [EmptyAddressesComponent, CreateAddressesComponent, AddressCardComponent, TranslatePipe],
   templateUrl: './addresses.component.html',
   styleUrl: './addresses.component.css',
 })

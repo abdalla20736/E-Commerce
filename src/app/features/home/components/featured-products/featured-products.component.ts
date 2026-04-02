@@ -5,10 +5,11 @@ import { ProductService } from '../../../../core/services/product.service';
 import { IProduct } from '../../../../core/models/products/product.model';
 import { ProductCardComponent } from '../../../../shared/components/product-card/product-card.component';
 import { AuthService } from '../../../../core/services/auth.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-featured-products',
-  imports: [SectionHeaderComponent, ProductCardComponent],
+  imports: [SectionHeaderComponent, ProductCardComponent, TranslatePipe],
   templateUrl: './featured-products.component.html',
   styleUrl: './featured-products.component.css',
 })

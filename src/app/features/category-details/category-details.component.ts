@@ -1,4 +1,4 @@
-import { finalize, map, Subject, takeUntil } from 'rxjs';
+import { finalize, map, Subject } from 'rxjs';
 import { Component, inject, signal } from '@angular/core';
 import { FeaturesSectionComponent } from '../../shared/components/features-section/features-section.component';
 import { BreadcrumbHeaderComponent } from '../../shared/components/breadcrumb-header/breadcrumb-header.component';
@@ -11,16 +11,18 @@ import { ICategory } from '../../core/models/categories/category.model';
 import { SubcategoryCardComponent } from './components/subcategory-card/subcategory-card.component';
 import { ItemsLoaderComponent } from '../../shared/components/items-loader/items-loader.component';
 import { EmptySubcategoriesComponent } from './components/empty-subcategories/empty-subcategories.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-category-details',
   imports: [
     FeaturesSectionComponent,
-    BreadcrumbHeaderComponent,
     RouterLink,
+    BreadcrumbHeaderComponent,
     SubcategoryCardComponent,
     ItemsLoaderComponent,
     EmptySubcategoriesComponent,
+    TranslatePipe,
   ],
   templateUrl: './category-details.component.html',
   styleUrl: './category-details.component.css',

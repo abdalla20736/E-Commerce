@@ -134,6 +134,10 @@
         "secondButton": "معلومات التوصيل"
       }
     },
+    "featuredProducts": {
+      "primary": "المنتجات",
+      "highlighted": "المميزة"
+    },
     "features": {
       "freeShipping": {
         "title": "شحن مجاني",
@@ -276,7 +280,11 @@
   },
   "breadcrumb": {
     "home": "الرئيسية",
-    "brands": "الماركات"
+    "brands": "العلامات التجارية",
+    "categories": "الفئات",
+    "profile": "حسابي",
+    "contact": "تواصل معنا",
+    "myOrders": "طلباتي"
   },
   "footer": {
     "description": "فريش كارت وجهتك الأولى للمنتجات عالية الجودة. من الأزياء إلى الإلكترونيات، نقدم لك أفضل الماركات بأسعار تنافسية مع تجربة تسوق سلسة.",
@@ -337,7 +345,12 @@
     "browseCategory": "تصفح منتجات",
     "browseSubcategory": "تصفح",
     "browseSubcategorySuffix": "منتجات",
-    "exploreCollection": "استكشف مجموعتنا الكاملة من المنتجات"
+    "exploreCollection": "استكشف مجموعتنا الكاملة من المنتجات",
+    "empty": {
+      "title": "لا توجد منتجات",
+      "description": "لا توجد منتجات تطابق الفلاتر الحالية.",
+      "viewAll": "عرض كل المنتجات"
+    }
   },
   "categories": {
     "allCategories": "كل الفئات",
@@ -347,5 +360,283 @@
     "topBrands": "أفضل الماركات",
     "shopFavorite": "تسوق من ماركاتك المفضلة",
     "viewProducts": "عرض المنتجات"
+  },
+  "categoryDetails": {
+    "subtitle": "اختر فئة فرعية لتصفح المنتجات",
+    "backToCategories": "العودة إلى الفئات",
+    "subcategoriesCount": "{{count}} فئة فرعية في {{name}}",
+    "loadingMessage": "جارٍ تحميل الفئات الفرعية...",
+    "browseProducts": "تصفح المنتجات",
+    "noSubcategoriesFound": "لا توجد فئات فرعية",
+    "noSubcategoriesSubtitle": "لا توجد فئات فرعية مرتبطة بالفئة المحددة.",
+    "empty": {
+      "title": "لا توجد أقسام فرعية",
+      "description": "لا توجد أقسام فرعية مرتبطة بالفئة المختارة."
+    },
+    "viewSubcategories": "عرض الأقسام الفرعية"
+  },
+  "search": {
+    "filters": "الفلاتر",
+    "noProductsFound": "لا توجد منتجات",
+    "noProductsSubtitle": "حاول تعديل بحثك أو الفلاتر للعثور على ما تبحث عنه.",
+    "clearFilters": "مسح الفلاتر",
+    "sortBy": "ترتيب حسب",
+    "relevance": "الأكثر صلة",
+    "priceLowToHigh": "السعر: من الأقل إلى الأعلى",
+    "priceHighToLow": "السعر: من الأعلى إلى الأقل",
+    "ratingHighToLow": "التقييم: من الأعلى إلى الأقل",
+    "nameAtoZ": "الاسم: من أ إلى ي",
+    "nameZtoA": "الاسم: من ي إلى أ",
+    "searchResults": "نتائج البحث",
+    "searchPlaceholder": "ابحث عن منتجات...",
+    "searchResultsFor": "نتائج البحث عن \"{{query}}\"",
+    "weFound": "وجدنا",
+    "productsForYou": "منتج لك"
+  },
+  "profile": {
+    "addresses": {
+      "title": "حسابي",
+      "subtitle": "إدارة عناوين التوصيل المحفوظة",
+      "addAddress": "إضافة عنوان",
+      "form": {
+        "editAddress": "تعديل العنوان",
+        "addNewAddress": "إضافة عنوان جديد",
+        "addressName": "اسم العنوان",
+        "addressNamePlaceholder": "مثال: المنزل، المكتب",
+        "fullAddress": "العنوان الكامل",
+        "fullAddressPlaceholder": "الشارع، المبنى، الشقة...",
+        "phoneNumber": "رقم الهاتف",
+        "city": "المدينة",
+        "cityPlaceholder": "القاهرة",
+        "cancel": "إلغاء",
+        "saving": "جارٍ الحفظ...",
+        "update": "تحديث",
+        "errors": {
+          "nameRequired": "*اسم العنوان مطلوب.",
+          "detailsRequired": "*تفاصيل العنوان مطلوبة.",
+          "detailsMinlength": "*يجب أن تكون تفاصيل العنوان 10 أحرف على الأقل",
+          "phoneRequired": "*رقم الهاتف مطلوب.",
+          "phonePattern": "*يُسمح بالأرقام المصرية فقط.",
+          "cityRequired": "*المدينة مطلوبة.",
+          "cityMinlength": "*يجب أن تكون المدينة 10 أحرف على الأقل."
+        }
+      },
+      "empty": {
+        "title": "لا توجد عناوين بعد",
+        "subtitle": "أضف أول عنوان توصيل لتسريع عملية الدفع وتسهيلها.",
+        "addFirstAddress": "إضافة أول عنوان"
+      }
+    },
+    "myAccount": "حسابي",
+    "subtitle": "إدارة عناوينك وإعدادات حسابك",
+    "myAddresses": "عناويني",
+    "accountSettings": "إعدادات الحساب",
+    "accountSettingsSubtitle": "إدارة عناوين التوصيل المحفوظة",
+    "updateProfile": {
+      "title": "معلومات الملف الشخصي",
+      "subtitle": "تحديث بياناتك الشخصية",
+      "failedToUpdate": "فشل تحديث الملف الشخصي",
+      "fullName": "الاسم الكامل",
+      "fullNamePlaceholder": "أدخل اسمك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "phone": "رقم الهاتف",
+      "saving": "جارٍ الحفظ...",
+      "saveChanges": "حفظ التغييرات",
+      "accountInfo": "معلومات الحساب",
+      "userId": "معرف المستخدم",
+      "role": "الدور",
+      "errors": {
+        "nameRequired": "*يرجى إدخال اسمك",
+        "nameTooShort": "*الاسم قصير جداً",
+        "emailRequired": "*يرجى إدخال بريدك الإلكتروني",
+        "emailInvalid": "*بريد إلكتروني غير صالح",
+        "emailTaken": "*يوجد حساب بهذا البريد الإلكتروني بالفعل",
+        "phoneRequired": "*يرجى إدخال رقم هاتفك",
+        "phonePattern": "*يُسمح بأرقام الهواتف المصرية فقط"
+      }
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "changePassword": "تغيير كلمة المرور",
+      "changePasswordSubtitle": "تحديث كلمة مرور حسابك",
+      "currentPassword": "كلمة المرور الحالية",
+      "currentPasswordPlaceholder": "أدخل كلمة مرورك الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "newPasswordPlaceholder": "أدخل كلمة مرورك الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "confirmNewPasswordPlaceholder": "أكد كلمة مرورك الجديدة",
+      "mustBe8Chars": "يجب أن تكون 8 أحرف على الأقل",
+      "changingPassword": "جارٍ تغيير كلمة المرور...",
+      "errors": {
+        "currentPasswordRequired": "*يرجى إدخال كلمة مرورك الحالية",
+        "newPasswordRequired": "*يرجى إدخال كلمة مرورك الجديدة",
+        "minlength": "*يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+        "missingUpperCase": "*يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+        "missingLowerCase": "*يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+        "missingNumber": "*يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+        "missingSpecialChar": "*يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+        "confirmPasswordRequired": "*يرجى تأكيد كلمة مرورك",
+        "passwordMismatch": "*كلمتا المرور غير متطابقتين"
+      }
+    }
+  },
+  "notFound": {
+    "title": "عفواً! لا يوجد شيء هنا",
+    "subtitle": "يبدو أن هذه الصفحة نفدت من المخزون! لا تقلق، هناك الكثير من المحتوى الرائع لاستكشافه.",
+    "goToHomepage": "الذهاب إلى الرئيسية",
+    "goBack": "العودة",
+    "popularDestinations": "الوجهات الشائعة"
+  },
+  "contact": {
+    "pageTitle": "تواصل معنا",
+    "pageSubtitle": "يسعدنا سماعك. تواصل مع فريقنا.",
+    "phone": "الهاتف",
+    "phoneHours": "الاثنين - الجمعة من 8 صباحاً حتى 6 مساءً",
+    "email": "البريد الإلكتروني",
+    "emailResponse": "سنرد خلال 24 ساعة",
+    "office": "المكتب",
+    "businessHours": "ساعات العمل",
+    "mondayFriday": "الاثنين - الجمعة: 8 صباحاً – 6 مساءً",
+    "saturday": "السبت: 9 صباحاً – 4 مساءً",
+    "sunday": "الأحد: مغلق",
+    "followUs": "تابعنا",
+    "sendMessage": "أرسل لنا رسالة",
+    "sendMessageSubtitle": "املأ النموذج وسنتواصل معك",
+    "fullName": "الاسم الكامل",
+    "emailAddress": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "selectSubject": "اختر موضوعاً",
+    "generalInquiry": "استفسار عام",
+    "orderSupport": "دعم الطلبات",
+    "shippingQuestion": "سؤال عن الشحن",
+    "returnsRefunds": "الإرجاع والاسترداد",
+    "productInformation": "معلومات المنتج",
+    "feedbackSuggestions": "ملاحظات واقتراحات",
+    "other": "أخرى",
+    "message": "الرسالة",
+    "messagePlaceholder": "كيف يمكننا مساعدتك؟",
+    "sendBtn": "إرسال الرسالة",
+    "quickAnswers": "تبحث عن إجابات سريعة؟",
+    "quickAnswersSubtitle": "تفضل بزيارة مركز المساعدة للاطلاع على الأسئلة الشائعة حول الطلبات والشحن والإرجاع والمزيد.",
+    "visitHelpCenter": "زيارة مركز المساعدة"
+  },
+  "checkout": {
+    "home": "الرئيسية",
+    "cart": "السلة",
+    "completeOrder": "أكمل طلبك",
+    "reviewItems": "راجع منتجاتك وأكمل عملية الشراء",
+    "backToCart": "العودة إلى السلة",
+    "shippingAddress": "عنوان الشحن",
+    "shippingAddressSubtitle": "أين تريد توصيل طلبك؟",
+    "savedAddresses": "العناوين المحفوظة",
+    "savedAddressesSubtitle": "اختر عنواناً محفوظاً أو أدخل عنواناً جديداً أدناه",
+    "useDifferentAddress": "استخدام عنوان مختلف",
+    "useDifferentAddressSubtitle": "أدخل عنوان شحن جديداً يدوياً",
+    "deliveryInfo": "معلومات التوصيل",
+    "deliveryInfoSubtitle": "تأكد من صحة عنوانك لضمان توصيل سلس",
+    "city": "المدينة",
+    "cityPlaceholder": "مثال: القاهرة، الإسكندرية، الجيزة",
+    "streetAddress": "عنوان الشارع",
+    "streetAddressPlaceholder": "اسم الشارع، رقم المبنى، الطابق، الشقة...",
+    "phoneNumber": "رقم الهاتف",
+    "egyptianNumbersOnly": "أرقام مصرية فقط",
+    "paymentMethod": "طريقة الدفع",
+    "paymentMethodSubtitle": "اختر طريقة الدفع المناسبة",
+    "cashOnDelivery": "الدفع عند الاستلام",
+    "cashOnDeliverySubtitle": "ادفع عند وصول طلبك إلى باب منزلك",
+    "payOnline": "الدفع الإلكتروني",
+    "payOnlineSubtitle": "دفع آمن ببطاقة الائتمان/الخصم عبر Stripe",
+    "secureEncrypted": "آمن ومشفر",
+    "secureEncryptedSubtitle": "معلومات الدفع محمية بتشفير SSL 256-bit",
+    "orderSummary": "ملخص الطلب",
+    "items": "{{count}} منتجات",
+    "subtotal": "المجموع الفرعي",
+    "shipping": "الشحن",
+    "free": "مجاني",
+    "total": "الإجمالي",
+    "processing": "جارٍ المعالجة...",
+    "proceedToPayment": "المتابعة للدفع",
+    "placeOrder": "تأكيد الطلب",
+    "secure": "آمن",
+    "fastDelivery": "توصيل سريع",
+    "easyReturns": "إرجاع سهل",
+    "loadingCheckout": "جارٍ تحميل الدفع...",
+    "preparingOrder": "جارٍ تجهيز طلبك",
+    "errors": {
+      "cityRequired": "*المدينة مطلوبة.",
+      "cityMinlength": "*يجب أن تكون المدينة 10 أحرف على الأقل.",
+      "detailsRequired": "*تفاصيل العنوان مطلوبة.",
+      "detailsMinlength": "*يجب أن تكون تفاصيل العنوان 10 أحرف على الأقل",
+      "phoneRequired": "*رقم الهاتف مطلوب.",
+      "phonePattern": "*يرجى إدخال رقم هاتف مصري صحيح"
+    }
+  },
+  "orders": {
+    "title": "طلباتي",
+    "subtitle": "تتبع وإدارة {{count}} طلباتك",
+    "continueShopping": "متابعة التسوق",
+    "loading": {
+      "title": "جاري تحميل الطلبات...",
+      "subtitle": "يرجى الانتظار"
+    }
+  },
+
+  "resetPassword": {
+    "createPassword": {
+      "newPassword": {
+        "label": "كلمة المرور الجديدة",
+        "placeholder": "أدخل كلمة المرور الجديدة"
+      },
+      "confirmPassword": {
+        "label": "تأكيد كلمة المرور",
+        "placeholder": "تأكيد كلمة المرور الجديدة"
+      },
+      "submit": "إعادة تعيين كلمة المرور",
+      "submitting": "جاري إعادة التعيين...",
+      "errors": {
+        "required": "يرجى إدخال كلمة المرور",
+        "minLength": "كلمة المرور يجب ألا تقل عن 8 أحرف",
+        "uppercase": "يجب أن تحتوي على حرف كبير",
+        "lowercase": "يجب أن تحتوي على حرف صغير",
+        "number": "يجب أن تحتوي على رقم",
+        "special": "يجب أن تحتوي على رمز خاص",
+        "confirmRequired": "تأكيد كلمة المرور مطلوب",
+        "mismatch": "كلمتا المرور غير متطابقتين"
+      }
+    }
+  },
+
+  "wishlist": {
+    "title": "المفضلة",
+    "subtitle": "{{count}} عنصر محفوظ",
+
+    "loading": "جاري التحميل...",
+    "loadingFull": "جاري تحميل المفضلة...",
+
+    "product": "المنتج",
+    "price": "السعر",
+    "status": "الحالة",
+    "action": "الإجراء",
+
+    "inCart": "في السلة",
+    "inStock": "متوفر",
+
+    "viewCart": "عرض السلة",
+    "addToCart": "أضف إلى السلة",
+    "remove": "إزالة",
+
+    "continueShopping": "← متابعة التسوق",
+
+    "empty": {
+      "title": "قائمة المفضلة فارغة",
+      "description": "تصفح المنتجات واحفظ المفضلة هنا. قم بتسجيل الدخول لمزامنة المفضلة عبر الأجهزة.",
+      "browse": "تصفح المنتجات",
+      "signIn": "تسجيل الدخول"
+    }
+  },
+  "filters": {
+    "active": "الفلاتر النشطة",
+    "activeWithColon": "الفلاتر النشطة:"
   }
 }

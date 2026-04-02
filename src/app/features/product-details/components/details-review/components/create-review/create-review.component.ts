@@ -46,21 +46,24 @@ export class CreateReviewComponent {
       .addReview(productId, this.reviewForm.value)
       .pipe(finalize(() => this.isSubmitting.set(false)))
       .subscribe({
-        next: (newReview) => {
+        next: (response) => {
           const user = this.currentUser();
           if (!user) return;
+          const newReview = response.data;
+
           const review: IReview = {
             _id: newReview._id,
             review: newReview.review,
-            rating: Number(newReview.rating), // ensure number
+            rating: Number(newReview.rating),
             product: newReview.product,
             user: {
-              _id: user._id, // ✅ correct
-              name: user.name, // ✅ correct
+              _id: user._id,
+              name: user.name,
             },
             createdAt: newReview.createdAt,
             updatedAt: newReview.updatedAt,
           };
+
           this.toastrService.success('Review added successfully!');
           this.updateReview.emit(review);
         },

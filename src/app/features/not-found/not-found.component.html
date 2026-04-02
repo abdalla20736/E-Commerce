@@ -49,11 +49,10 @@
     </div>
 
     <h1 class="mb-2 text-4xl sm:text-5xl font-black tracking-tight text-gray-900">
-      Oops! Nothing Here
+      {{ 'notFound.title' | translate }}
     </h1>
     <p class="max-w-2xl text-lg font-semibold leading-8 text-gray-500 max-w-md">
-      Looks like this page went out of stock! Don't worry, there's plenty more fresh content to
-      explore.
+      {{ 'notFound.subtitle' | translate }}
     </p>
 
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">
@@ -62,16 +61,15 @@
         class="inline-flex items-center gap-2 rounded-2xl bg-primary-600 hover:bg-primary-700 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-primary-600/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary-600/30 hover:-translate-y-1"
       >
         <i class="fas fa-house text-base" aria-hidden="true"></i>
-        Go to Homepage
+        {{ 'notFound.goToHomepage' | translate }}
       </a>
-
       <button
         type="button"
         (click)="goBack()"
         class="inline-flex items-center gap-2 rounded-2xl border border-[#D5DAE2] bg-white px-8 py-4 text-lg font-bold text-[#505B70] shadow-[0_8px_16px_rgba(29,38,52,.08)] transition hover:-translate-y-0.5 hover:bg-[#F7F8FA]"
       >
         <i class="fas fa-arrow-left text-base" aria-hidden="true"></i>
-        Go Back
+        {{ 'notFound.goBack' | translate }}
       </button>
     </div>
 
@@ -79,19 +77,18 @@
       class="mt-12 w-full max-w-3xl rounded-3xl border border-[#E1E5EB] bg-[#F7F8FA] p-6 shadow-[0_16px_24px_rgba(44,58,76,.06)]"
     >
       <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.18em] text-[#A0AABC]">
-        Popular Destinations
+        {{ 'notFound.popularDestinations' | translate }}
       </p>
-
       <div class="flex flex-wrap items-center justify-center gap-3">
         @for (item of destinations; track item.label) {
           <a
             [routerLink]="item.route"
-            class="rounded-xl px-5 py-2.5 text-sm font-bold text-[#6D7789] transition hover:-translate-y-0.5 hover:bg-white hover:text-[#2C3446]"
             [class]="
               item.label === 'All Products'
-                ? 'rounded-xl bg-[#E4F8ED] px-5 py-2.5 text-sm font-bold text-[#33A965] hover:bg-primary-100  shadow-[inset_0_0_0_1px_#C7F0D8]'
+                ? 'rounded-xl bg-[#E4F8ED] px-5 py-2.5 text-sm font-bold text-[#33A965] hover:bg-primary-100 shadow-[inset_0_0_0_1px_#C7F0D8]'
                 : 'rounded-xl bg-[#ECEFF3] px-5 py-2.5 text-sm font-bold text-[#6D7789]'
             "
+            class="transition hover:-translate-y-0.5 hover:bg-white hover:text-[#2C3446]"
           >
             {{ item.label }}
           </a>

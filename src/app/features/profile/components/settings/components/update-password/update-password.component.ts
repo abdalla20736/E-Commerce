@@ -11,10 +11,11 @@ import {
 } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { IconComponent } from '../../../../../../shared/components/icon/icon.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-update-password',
-  imports: [IconComponent, ReactiveFormsModule],
+  imports: [IconComponent, ReactiveFormsModule, TranslatePipe],
   templateUrl: './update-password.component.html',
   styleUrl: './update-password.component.css',
 })
@@ -75,7 +76,6 @@ export class UpdatePasswordComponent {
         .pipe(finalize(() => this.isSubmittingForm.set(false)))
         .subscribe({
           next: () => {
-
             this.toastrService.success('Password has been updated.');
             this.updateUserPasswordForm.reset();
           },

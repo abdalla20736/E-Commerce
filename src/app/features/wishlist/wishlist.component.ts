@@ -13,6 +13,7 @@ import { CartService } from '../../core/services/cart.service';
 import { ICartResponse } from '../../core/models/cart/cart-response-model';
 import { ICartProductGuest } from '../../core/models/cart/cart-product-guest.model';
 import { ItemsLoaderComponent } from '../../shared/components/items-loader/items-loader.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wishlist',
@@ -23,6 +24,7 @@ import { ItemsLoaderComponent } from '../../shared/components/items-loader/items
     RouterLink,
     WishlistCardComponent,
     ItemsLoaderComponent,
+    TranslatePipe,
   ],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css',

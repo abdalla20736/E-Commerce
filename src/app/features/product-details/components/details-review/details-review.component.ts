@@ -20,7 +20,7 @@ export class DetailsReviewComponent {
 
   product = input<IProduct>();
   reviews = model<IReview[]>([]);
-  reviewsCount = input.required<number>();
+  reviewsCount = model.required<number>();
   activeTab = signal(0);
   currentUser = toSignal(this.authService.currentUser$);
   isLoggedIn = this.authService.isLoggedIn;
@@ -34,24 +34,51 @@ export class DetailsReviewComponent {
 
     return reviews.some((review) => review?.user?._id === user._id);
   });
+  ratingDistribution = computed(() => {
+    const reviews = this.reviews();
+    const total = reviews.length;
+
+    const result: Record<number, number> = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+    };
+
+    if (!total) return result;
+
+    for (const r of reviews) {
+      result[r.rating]++;
+    }
+
+    for (const star in result) {
+      result[star] = Math.round((result[star] / total) * 100);
+    }
+
+    return result;
+  });
 
   getStarType(star: number): 'full' | 'half' | 'empty' {
     const rating = this.product()?.ratingsAverage ?? 0;
     return rating >= star ? 'full' : rating >= star - 0.5 ? 'half' : 'empty';
   }
 
-  getRatingPercentByStar(star: number) {
+  getRatingPercentByStar(star: number): number {
     const reviews = this.reviews();
     const ratingByStar = reviews.filter((review) => review.rating === star);
+    console.log(ratingByStar);
     const percent = (ratingByStar.length / this.reviewsCount()) * 100;
-    return percent;
+    return ratingByStar.length > 0 ? percent : 0;
   }
 
   deleteReview(reviewId: string): void {
     this.reviews.update((reviews) => reviews.filter((r) => r._id !== reviewId));
+    this.reviewsCount.set(this.reviews().length);
   }
 
   addReview(review: IReview): void {
     this.reviews.update((current) => [review, ...current]);
+    this.reviewsCount.set(this.reviews().length);
   }
 }

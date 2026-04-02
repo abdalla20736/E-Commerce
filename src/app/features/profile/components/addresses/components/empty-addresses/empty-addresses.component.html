@@ -3,19 +3,18 @@
     <div class="rounded-full size-20 flex items-center justify-around bg-gray-100 mb-5">
       <i class="fas fa-location-dot text-gray-400 text-3xl"></i>
     </div>
-
-    <h2 class="text-gray-800 font-bold text-lg mb-2">No Addresses Yet</h2>
-
+    <h2 class="text-gray-800 font-bold text-lg mb-2">
+      {{ 'profile.addresses.empty.title' | translate }}
+    </h2>
     <p class="text-gray-500 leading-relaxed mb-8 text-center">
-      Add your first delivery address to make checkout<br />faster and easier.
+      {{ 'profile.addresses.empty.subtitle' | translate }}
     </p>
-
     <button
       (click)="onOpenForm()"
       class="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 active:scale-95 transition-all duration-150 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-primary-600/25 cursor-pointer"
     >
       <i class="fas fa-plus size-4"></i>
-      Add Your First Address
+      {{ 'profile.addresses.empty.addFirstAddress' | translate }}
     </button>
   </div>
 </div>
