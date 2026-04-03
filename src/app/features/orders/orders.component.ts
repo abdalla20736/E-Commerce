@@ -8,10 +8,17 @@ import { OrdersEmptyStateComponent } from './components/orders-empty-state/order
 import { RouterLink } from '@angular/router';
 import { FeaturesSectionComponent } from '../../shared/components/features-section/features-section.component';
 import { finalize } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orders',
-  imports: [OrderCardComponent, OrdersEmptyStateComponent, RouterLink, FeaturesSectionComponent],
+  imports: [
+    OrderCardComponent,
+    OrdersEmptyStateComponent,
+    RouterLink,
+    FeaturesSectionComponent,
+    TranslatePipe,
+  ],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css',
 })

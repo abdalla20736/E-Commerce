@@ -4,7 +4,7 @@
       (click)="toggleMobileFilters.set(true)"
       class="lg:hidden flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors cursor-pointer"
     >
-      <i class="fas fa-sliders"></i> Filters
+      <i class="fas fa-sliders"></i> {{ 'search.filters' | translate }}
     </button>
     <div class="flex items-center gap-1 bg-white rounded-lg border border-gray-200 p-1">
       <button
@@ -25,18 +25,18 @@
   </div>
 
   <form class="flex items-center gap-2 text-sm text-gray-500">
-    <span>Sort by</span>
+    <span>{{ 'search.sortBy' | translate }}</span>
     <select
       [value]="sortOption()"
       (input)="sortOption.set($any($event.target).value)"
       class="border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-green-400 bg-white"
     >
-      <option value="" selected="">Relevance</option>
-      <option value="price">Price: Low to High</option>
-      <option value="-price">Price: High to Low</option>
-      <option value="-ratingsAverage">Rating: High to Low</option>
-      <option value="title">Name: A to Z</option>
-      <option value="-title">Name: Z to A</option>
+      <option value="" selected="">{{ 'search.relevance' | translate }}</option>
+      <option value="price">{{ 'search.priceLowToHigh' | translate }}</option>
+      <option value="-price">{{ 'search.priceHighToLow' | translate }}</option>
+      <option value="-ratingsAverage">{{ 'search.ratingHighToLow' | translate }}</option>
+      <option value="title">{{ 'search.nameAtoZ' | translate }}</option>
+      <option value="-title">{{ 'search.nameZtoA' | translate }}</option>
     </select>
   </form>
 </div>

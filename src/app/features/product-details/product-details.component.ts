@@ -46,6 +46,7 @@ export class ProductDetailsComponent implements OnInit {
       next: (product) => {
         this.product.set(product);
         this.isLoadingCurrentProduct.set(false);
+        console.log(product);
       },
       error: () => {},
     });
@@ -61,6 +62,7 @@ export class ProductDetailsComponent implements OnInit {
       next: (response) => {
         this.reviews.set(response.data);
         this.reviewsCount.set(response.results);
+        console.log(response);
       },
     });
   }

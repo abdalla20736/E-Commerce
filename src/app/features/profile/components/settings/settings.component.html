@@ -1,15 +1,16 @@
 <div class="flex items-center justify-between">
   <div class="w-full">
     <div class="flex items-center justify-between mb-6">
-      <div class="">
-        <h2 class="text-gray-900 font-bold text-xl">Account Settings</h2>
-        <p class="text-gray-500 text-sm mt-1">Manage your saved delivery addresses</p>
+      <div>
+        <h2 class="text-gray-900 font-bold text-xl">{{ 'profile.accountSettings' | translate }}</h2>
+        <p class="text-gray-500 text-sm mt-1">
+          {{ 'profile.accountSettingsSubtitle' | translate }}
+        </p>
       </div>
     </div>
     <div>
       <app-update-profile></app-update-profile>
     </div>
-
     <div>
       <app-update-password></app-update-password>
     </div>

@@ -1,10 +1,12 @@
 import { Component, inject, model, OnDestroy, output, signal } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-filter-toolbar',
+  imports: [TranslatePipe],
   templateUrl: './filter-toolbar.component.html',
   styleUrl: './filter-toolbar.component.css',
 })

@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { FeaturesSectionComponent } from '../../shared/components/features-section/features-section.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 type Destination = {
   label: string;
@@ -11,7 +12,7 @@ type Destination = {
 
 @Component({
   selector: 'app-not-found',
-  imports: [RouterLink, FeaturesSectionComponent],
+  imports: [RouterLink, FeaturesSectionComponent, TranslatePipe],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.css',
 })

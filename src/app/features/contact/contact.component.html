@@ -1,7 +1,9 @@
 <app-breadcrumb-header
   classes="bg-linear-to-br from-primary-600 via-primary-500 to-primary-400 text-white"
+  [title]="'contact.pageTitle' | translate"
+  [subtitle]="'contact.pageSubtitle' | translate"
   [parentRoutes]="['home', 'contact']"
-  [parentLabels]="['Home', 'Contact Us']"
+  [parentLabels]="['breadcrumb.home' | translate, 'breadcrumb.contact' | translate]"
   iconClass="fa-headset text-4xl"
 ></app-breadcrumb-header>
 
@@ -9,6 +11,7 @@
   <div class="container mx-auto px-4 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-6 gap-8 items-start">
       <div class="flex flex-col gap-4 col-span-2">
+        <!-- Phone -->
         <div
           class="card bg-white rounded-2xl p-6 flex items-start gap-4 border border-gray-100 shadow-sm"
         >
@@ -16,8 +19,8 @@
             <i class="fas fa-phone text-primary-600 text-lg"></i>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 text-base">Phone</p>
-            <p class="text-sm text-gray-500 mt-0.5">Mon-Fri from 8am to 6pm</p>
+            <p class="font-semibold text-gray-800 text-base">{{ 'contact.phone' | translate }}</p>
+            <p class="text-sm text-gray-500 mt-0.5">{{ 'contact.phoneHours' | translate }}</p>
             <a
               href="tel:+18001234567"
               class="text-primary-600 font-semibold mt-1 inline-block hover:underline transition-colors"
@@ -26,6 +29,7 @@
           </div>
         </div>
 
+        <!-- Email -->
         <div
           class="card bg-white rounded-2xl p-6 flex items-start gap-4 border border-gray-100 shadow-sm"
         >
@@ -33,8 +37,8 @@
             <i class="fas fa-envelope text-primary-600 text-lg"></i>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 text-base">Email</p>
-            <p class="text-sm text-gray-500 mt-0.5">We'll respond within 24 hours</p>
+            <p class="font-semibold text-gray-800 text-base">{{ 'contact.email' | translate }}</p>
+            <p class="text-sm text-gray-500 mt-0.5">{{ 'contact.emailResponse' | translate }}</p>
             <a
               href="mailto:support@freshcart.com"
               class="text-primary-600 font-semibold mt-1 inline-block hover:underline transition-colors"
@@ -43,6 +47,7 @@
           </div>
         </div>
 
+        <!-- Office -->
         <div
           class="card bg-white rounded-2xl p-6 flex items-start gap-4 border border-gray-100 shadow-sm"
         >
@@ -50,7 +55,7 @@
             <i class="fas fa-location-dot text-primary-600 text-lg"></i>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 text-base">Office</p>
+            <p class="font-semibold text-gray-800 text-base">{{ 'contact.office' | translate }}</p>
             <p class="text-sm text-gray-500 mt-1 leading-relaxed">
               123 Commerce Street<br />
               New York, NY 10001<br />
@@ -59,6 +64,7 @@
           </div>
         </div>
 
+        <!-- Business Hours -->
         <div
           class="card bg-white rounded-2xl p-6 flex items-start gap-4 border border-gray-100 shadow-sm"
         >
@@ -66,17 +72,22 @@
             <i class="fas fa-clock text-primary-600 text-lg"></i>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 text-base">Business Hours</p>
+            <p class="font-semibold text-gray-800 text-base">
+              {{ 'contact.businessHours' | translate }}
+            </p>
             <div class="text-sm text-gray-500 mt-1 space-y-0.5">
-              <p>Monday - Friday: 8am – 6pm</p>
-              <p>Saturday: 9am – 4pm</p>
-              <p>Sunday: Closed</p>
+              <p>{{ 'contact.mondayFriday' | translate }}</p>
+              <p>{{ 'contact.saturday' | translate }}</p>
+              <p>{{ 'contact.sunday' | translate }}</p>
             </div>
           </div>
         </div>
 
+        <!-- Follow Us -->
         <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <p class="font-semibold text-gray-800 text-base mb-4">Follow Us</p>
+          <p class="font-semibold text-gray-800 text-base mb-4">
+            {{ 'contact.followUs' | translate }}
+          </p>
           <div class="flex gap-3">
             <a
               href="#"
@@ -84,21 +95,18 @@
             >
               <i class="fab fa-facebook-f text-lg"></i>
             </a>
-
             <a
               href="#"
               class="social-icon size-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white transition-colors"
             >
               <i class="fab fa-twitter text-lg"></i>
             </a>
-
             <a
               href="#"
               class="social-icon size-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white transition-colors"
             >
               <i class="fab fa-instagram text-lg"></i>
             </a>
-
             <a
               href="#"
               class="social-icon size-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white transition-colors"
@@ -116,16 +124,20 @@
               <i class="fas fa-headset text-lg text-primary-600"></i>
             </div>
             <div>
-              <h2 class="text-xl font-bold text-gray-800">Send us a Message</h2>
+              <h2 class="text-xl font-bold text-gray-800">
+                {{ 'contact.sendMessage' | translate }}
+              </h2>
               <p class="text-sm text-gray-400 mt-0.5">
-                Fill out the form and we'll get back to you
+                {{ 'contact.sendMessageSubtitle' | translate }}
               </p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">{{
+                'contact.fullName' | translate
+              }}</label>
               <input
                 type="text"
                 placeholder="John Doe"
@@ -133,7 +145,9 @@
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">{{
+                'contact.emailAddress' | translate
+              }}</label>
               <input
                 type="email"
                 placeholder="john@example.com"
@@ -143,26 +157,30 @@
           </div>
 
           <div class="mb-5">
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Subject</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">{{
+              'contact.subject' | translate
+            }}</label>
             <select
               class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-500 bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all appearance-none cursor-pointer"
             >
-              <option value="">Select a subject</option>
-              <option value="general">General Inquiry</option>
-              <option value="order">Order Support</option>
-              <option value="shipping">Shipping Question</option>
-              <option value="returns">Returns &amp; Refunds</option>
-              <option value="product">Product Information</option>
-              <option value="feedback">Feedback &amp; Suggestions</option>
-              <option value="other">Other</option>
+              <option value="">{{ 'contact.selectSubject' | translate }}</option>
+              <option value="general">{{ 'contact.generalInquiry' | translate }}</option>
+              <option value="order">{{ 'contact.orderSupport' | translate }}</option>
+              <option value="shipping">{{ 'contact.shippingQuestion' | translate }}</option>
+              <option value="returns">{{ 'contact.returnsRefunds' | translate }}</option>
+              <option value="product">{{ 'contact.productInformation' | translate }}</option>
+              <option value="feedback">{{ 'contact.feedbackSuggestions' | translate }}</option>
+              <option value="other">{{ 'contact.other' | translate }}</option>
             </select>
           </div>
 
           <div class="mb-6">
-            <label class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">{{
+              'contact.message' | translate
+            }}</label>
             <textarea
               rows="5"
-              placeholder="How can we help you?"
+              [placeholder]="'contact.messagePlaceholder' | translate"
               class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-300 bg-gray-50 resize-none transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             ></textarea>
           </div>
@@ -171,10 +189,11 @@
             class="send-btn inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm px-7 py-3 rounded-xl cursor-pointer transition-all"
           >
             <i class="fas fa-paper-plane"></i>
-            Send Message
+            {{ 'contact.sendBtn' | translate }}
           </button>
         </form>
 
+        <!-- Help Banner -->
         <div
           class="help-banner rounded-2xl p-6 flex items-start gap-4 border border-green-100 bg-primary-50"
         >
@@ -182,16 +201,17 @@
             <i class="fas fa-circle-question text-primary-600"></i>
           </div>
           <div>
-            <p class="font-semibold text-gray-800 text-base">Looking for quick answers?</p>
+            <p class="font-semibold text-gray-800 text-base">
+              {{ 'contact.quickAnswers' | translate }}
+            </p>
             <p class="text-sm text-gray-500 mt-0.5">
-              Check out our Help Center for frequently asked questions about orders, shipping,
-              returns, and more.
+              {{ 'contact.quickAnswersSubtitle' | translate }}
             </p>
             <a
               href="#"
               class="text-primary-600 font-medium text-sm hover:underline inline-flex items-center gap-1"
             >
-              Visit Help Center
+              {{ 'contact.visitHelpCenter' | translate }}
               <i class="fas fa-arrow-right text-xs"></i>
             </a>
           </div>

@@ -3,7 +3,11 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-gray-900 font-bold text-xl">
-        {{ isEditMode() ? 'Edit Address' : 'Add New Address' }}
+        {{
+          isEditMode()
+            ? ('profile.addresses.form.editAddress' | translate)
+            : ('profile.addresses.form.addNewAddress' | translate)
+        }}
       </h2>
       <button
         (click)="onCloseForm()"
@@ -15,18 +19,20 @@
     <form #addressFormView (ngSubmit)="onSubmit()" [formGroup]="addressForm">
       <!-- Address Name -->
       <div class="mb-4">
-        <label class="block text-sm text-gray-600 mb-1.5">Address Name</label>
+        <label class="block text-sm text-gray-600 mb-1.5">{{
+          'profile.addresses.form.addressName' | translate
+        }}</label>
         <input
           type="text"
           formControlName="name"
-          placeholder="e.g. Home, Office"
+          [placeholder]="'profile.addresses.form.addressNamePlaceholder' | translate"
           class="w-full border border-gray-200 focus:border-primary-500 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition"
         />
         @let nameControl = addressForm.get('name');
         @if (nameControl?.invalid && nameControl?.touched) {
           <p class="text-red-500 text-sm mt-1">
             @if (nameControl?.hasError('required')) {
-              *Address name is required.
+              {{ 'profile.addresses.form.errors.nameRequired' | translate }}
             }
           </p>
         }
@@ -34,10 +40,12 @@
 
       <!-- Full Address -->
       <div class="mb-4">
-        <label class="block text-sm text-gray-600 mb-1.5">Full Address</label>
+        <label class="block text-sm text-gray-600 mb-1.5">{{
+          'profile.addresses.form.fullAddress' | translate
+        }}</label>
         <textarea
           formControlName="details"
-          placeholder="Street, building, apartment..."
+          [placeholder]="'profile.addresses.form.fullAddressPlaceholder' | translate"
           rows="3"
           class="w-full border border-gray-200 focus:border-primary-500 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition resize-none"
         ></textarea>
@@ -45,10 +53,10 @@
         @if (detailsControl?.invalid && detailsControl?.touched) {
           <p class="text-red-500 text-sm">
             @if (detailsControl?.hasError('required')) {
-              *Address details is required.
+              {{ 'profile.addresses.form.errors.detailsRequired' | translate }}
             }
             @if (detailsControl?.hasError('minlength')) {
-              *Address details must be at least 10 characters
+              {{ 'profile.addresses.form.errors.detailsMinlength' | translate }}
             }
           </p>
         }
@@ -58,7 +66,9 @@
       <div class="mb-7">
         <div class="flex gap-3">
           <div class="flex-1">
-            <label class="block text-sm text-gray-600 mb-1.5">Phone Number</label>
+            <label class="block text-sm text-gray-600 mb-1.5">{{
+              'profile.addresses.form.phoneNumber' | translate
+            }}</label>
             <input
               formControlName="phone"
               type="tel"
@@ -66,13 +76,14 @@
               class="w-full border border-gray-200 focus:border-primary-500 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition"
             />
           </div>
-
           <div class="flex-1">
-            <label class="block text-sm text-gray-600 mb-1.5">City</label>
+            <label class="block text-sm text-gray-600 mb-1.5">{{
+              'profile.addresses.form.city' | translate
+            }}</label>
             <input
               formControlName="city"
               type="text"
-              placeholder="Cairo"
+              [placeholder]="'profile.addresses.form.cityPlaceholder' | translate"
               class="w-full border border-gray-200 focus:border-primary-500 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition"
             />
           </div>
@@ -81,22 +92,21 @@
         @if (phoneControl?.invalid && phoneControl?.touched) {
           <div class="text-red-500 text-sm flex flex-col mt-1">
             @if (phoneControl?.hasError('required')) {
-              <span>*Phone number is required.</span>
+              <span>{{ 'profile.addresses.form.errors.phoneRequired' | translate }}</span>
             }
             @if (phoneControl?.hasError('pattern')) {
-              <span> *Only egyptian Number is allowed. </span>
+              <span>{{ 'profile.addresses.form.errors.phonePattern' | translate }}</span>
             }
           </div>
         }
-
         @let cityControl = addressForm.get('city');
         @if (cityControl?.invalid && cityControl?.touched) {
           <p class="text-red-500 text-sm flex flex-col mt-1">
             @if (cityControl?.hasError('required')) {
-              <span>*City is required.</span>
+              <span>{{ 'profile.addresses.form.errors.cityRequired' | translate }}</span>
             }
             @if (cityControl?.hasError('minlength')) {
-              <span>*City must be at least 10 letters.</span>
+              <span>{{ 'profile.addresses.form.errors.cityMinlength' | translate }}</span>
             }
           </p>
         }
@@ -110,19 +120,19 @@
           type="button"
           class="flex-1 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-sm transition active:scale-95 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Cancel
+          {{ 'profile.addresses.form.cancel' | translate }}
         </button>
         <button
           [disabled]="isSubmitting()"
           type="submit"
-          class="flex-1 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm transition active:scale-95 shadow-md shadow-primry-/25 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+          class="flex-1 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm transition active:scale-95 shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
         >
           @if (isSubmitting()) {
-            Saving...
+            {{ 'profile.addresses.form.saving' | translate }}
           } @else if (isEditMode()) {
-            Update
+            {{ 'profile.addresses.form.update' | translate }}
           } @else {
-            Add Address
+            {{ 'profile.addresses.addAddress' | translate }}
           }
         </button>
       </div>

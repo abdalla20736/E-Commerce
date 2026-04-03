@@ -13,10 +13,11 @@ import { DecimalPipe } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { EGYPTIAN_PHONE_PATTERN } from '../../core/сonstants/validators.constant';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout',
-  imports: [FeaturesSectionComponent, RouterLink, ReactiveFormsModule, DecimalPipe],
+  imports: [FeaturesSectionComponent, RouterLink, ReactiveFormsModule, DecimalPipe, TranslatePipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css',
 })

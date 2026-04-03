@@ -6,10 +6,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { finalize } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { EGYPTIAN_PHONE_PATTERN } from '../../../../../../core/сonstants/validators.constant';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-update-profile',
-  imports: [TitleCasePipe, ReactiveFormsModule],
+  imports: [TitleCasePipe, ReactiveFormsModule, TranslatePipe],
   templateUrl: './update-profile.component.html',
   styleUrl: './update-profile.component.css',
 })
