@@ -5,14 +5,14 @@
         @for (link of parentRoutes(); track $index) {
           @if ($index === parentRoutes().length - 1) {
             <li [class]="'text-white font-medium ' + lastRouteNameClasses()">
-              {{ parentLabels().at($index) }}
+              {{ parentLabels().at($index) | translate }}
             </li>
           } @else {
             <li>
               <a
                 [routerLink]="link"
                 [class]="'hover:text-white transition-colors ' + linkClasses()"
-                >{{ parentLabels().at($index) }}</a
+                >{{ parentLabels().at($index) | translate }}</a
               >
             </li>
             <li aria-hidden="true" [class]="'text-white/40 ' + navigationSlashesClasses()">/</li>

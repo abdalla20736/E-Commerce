@@ -283,8 +283,10 @@
     "brands": "العلامات التجارية",
     "categories": "الفئات",
     "profile": "حسابي",
-    "contact": "تواصل معنا",
-    "myOrders": "طلباتي"
+    "contact": "اتصل بنا",
+    "myOrders": "طلباتي",
+    "allProducts": "كل المنتجات",
+    "cart": "عربة التسوق"
   },
   "footer": {
     "description": "فريش كارت وجهتك الأولى للمنتجات عالية الجودة. من الأزياء إلى الإلكترونيات، نقدم لك أفضل الماركات بأسعار تنافسية مع تجربة تسوق سلسة.",
@@ -346,6 +348,8 @@
     "browseSubcategory": "تصفح",
     "browseSubcategorySuffix": "منتجات",
     "exploreCollection": "استكشف مجموعتنا الكاملة من المنتجات",
+
+    "showing": "عرض {{count}} منتج",
     "empty": {
       "title": "لا توجد منتجات",
       "description": "لا توجد منتجات تطابق الفلاتر الحالية.",
@@ -638,5 +642,37 @@
   "filters": {
     "active": "الفلاتر النشطة",
     "activeWithColon": "الفلاتر النشطة:"
+  },
+  "cart": {
+    "title": "عربة التسوق",
+    "loading": "جاري تحميل العربة...",
+    "items_count_one": "لديك منتج واحد في عربة التسوق",
+    "items_count_other": "لديك {{count}} منتجات في عربة التسوق",
+    "continue_shopping": "متابعة التسوق",
+    "clear_all": "مسح جميع المنتجات",
+    "order_summary": {
+      "title": "ملخص الطلب",
+      "items_in_cart": "{{count}} منتجات في عربتك",
+      "free_shipping_progress": "أضف {{amount}} جنيه للحصول على شحن مجاني",
+      "free_shipping_unlocked": "شحن مجاني!",
+      "free_shipping_subtitle": "أنت مؤهل للتوصيل المجاني",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "shipping_cost": "50 جنيه",
+      "shipping_free": "مجاني",
+      "total": "الإجمالي",
+      "apply_promo": "تطبيق كود الخصم",
+      "checkout": "الدفع الآمن",
+      "secure_payment": "دفع آمن",
+      "fast_delivery": "توصيل سريع",
+      "estimated_total": "الإجمالي التقديري",
+      "shipping_calculated": "يُحسب عند الدفع",
+      "login_to_checkout": "تسجيل الدخول للدفع",
+      "no_account": "ليس لديك حساب؟",
+      "sign_up": "إنشاء حساب",
+      "saved_items": "سيتم حفظ منتجات عربتك",
+      "track_orders": "تتبع طلباتك بسهولة",
+      "exclusive_deals": "احصل على عروض حصرية للأعضاء"
+    }
   }
 }

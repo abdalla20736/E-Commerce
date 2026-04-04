@@ -12,10 +12,11 @@ import { ISlideData } from './models/slide-data.model';
 import { LeftArrowIconComponent } from './icons/left-arrow-icon/left-arrow-icon.component';
 import { RightArrowIconComponent } from './icons/right-arrow-icon/right-arrow-icon.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-slider',
-  imports: [LeftArrowIconComponent, RightArrowIconComponent, TranslatePipe],
+  imports: [LeftArrowIconComponent, RightArrowIconComponent, TranslatePipe, RouterLink],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ItemsLoaderComponent } from '../../shared/components/items-loader/items-loader.component';
 import { finalize } from 'rxjs';
 import { ICartProduct } from '../../core/models/cart/cart-product-model';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
@@ -23,6 +24,7 @@ import { ICartProduct } from '../../core/models/cart/cart-product-model';
     CartProductCardComponent,
     EmptyCartComponent,
     ItemsLoaderComponent,
+    TranslatePipe
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',

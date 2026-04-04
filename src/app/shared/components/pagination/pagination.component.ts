@@ -47,7 +47,7 @@ export class PaginationComponent {
   toPage(pageNumber: number): void {
     const currentPage = Number(this.paginationData()?.currentPage) || 1;
     if (pageNumber === currentPage) return;
-    console.log(currentPage);
+
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: pageNumber === 1 ? { page: null } : { page: pageNumber },

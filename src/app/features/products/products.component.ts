@@ -21,7 +21,7 @@ import { FiltersMap } from '../../shared/types/filters/filters-map.type';
 import { IMetadata } from '../../core/models/products/products-response.model';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
@@ -47,6 +47,7 @@ export class ProductsComponent {
   private readonly wishlistService = inject(WishlistService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly translateService = inject(TranslateService);
   private destroyRef = inject(DestroyRef);
 
   isLoading = signal(true);
@@ -111,31 +112,31 @@ export class ProductsComponent {
   }
 
   initParentRoutes(): void {
-    const category: ICategory | undefined = this.activeFilters()['category']?.[0];
-    const brand: IBrand | undefined = this.activeFilters()['brand']?.[0];
-    const subcategory: ISubcategory | undefined = this.activeFilters()['subcategory']?.[0];
+    const category = this.activeFilters()['category']?.[0];
+    const brand = this.activeFilters()['brand']?.[0];
+    const subcategory = this.activeFilters()['subcategory']?.[0];
 
     const routes: string[] = [];
     const labels: string[] = [];
 
-    routes.push('home');
-    labels.push('Home');
+    routes.push('/home');
+    labels.push('breadcrumb.home');
 
     if (category || subcategory) {
       const validFilter = category ?? subcategory;
 
-      routes.push('categories', validFilter!._id);
-      labels.push('Categories', validFilter!.name);
+      routes.push('/categories', validFilter!._id);
+      labels.push('breadcrumb.categories', validFilter!.name);
     }
 
     if (brand) {
-      routes.push('brand', brand._id);
-      labels.push('Brands', brand.name);
+      routes.push('/brand', brand._id);
+      labels.push('breadcrumb.brands', brand.name);
     }
 
     if (!brand && !category && !subcategory) {
       routes.push('All Products');
-      labels.push('All Products');
+      labels.push('breadcrumb.allProducts');
     }
 
     this.parentRoutes.set(routes);
