@@ -50,7 +50,6 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        canActivate: [authGuard],
         path: 'addresses',
         loadComponent: () =>
           import('./features/profile/components/addresses/addresses.component').then(
