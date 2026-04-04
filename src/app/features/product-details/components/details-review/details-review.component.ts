@@ -67,7 +67,7 @@ export class DetailsReviewComponent {
   getRatingPercentByStar(star: number): number {
     const reviews = this.reviews();
     const ratingByStar = reviews.filter((review) => review.rating === star);
-    console.log(ratingByStar);
+
     const percent = (ratingByStar.length / this.reviewsCount()) * 100;
     return ratingByStar.length > 0 ? percent : 0;
   }

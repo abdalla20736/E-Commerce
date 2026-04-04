@@ -44,6 +44,7 @@
                 <span class="text-white font-medium">{{ slide.description | translate }}</span>
                 <div class="flex items-center gap-2 w-full flex-wrap">
                   <button
+                    [routerLink]="slide.firstButtonText.action"
                     class="bg-white text-[#00C950] px-6 py-2 rounded-md hover:bg-white/90 transition font-semibold border-2 border-white cursor-pointer hover:scale-105"
                   >
                     {{ slide.firstButtonText.text | translate }}

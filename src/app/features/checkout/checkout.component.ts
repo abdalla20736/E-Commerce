@@ -131,7 +131,7 @@ export class CheckoutComponent implements OnInit {
       .pipe(finalize(() => this.isSubmitting.set(false)))
       .subscribe({
         next: (response) => {
-          console.log(response);
+    
           window.open(response.session.url, '_self');
         },
       });

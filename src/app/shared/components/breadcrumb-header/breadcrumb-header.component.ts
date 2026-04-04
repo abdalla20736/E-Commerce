@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-breadcrumb-header',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './breadcrumb-header.component.html',
   styleUrl: './breadcrumb-header.component.css',
 })
