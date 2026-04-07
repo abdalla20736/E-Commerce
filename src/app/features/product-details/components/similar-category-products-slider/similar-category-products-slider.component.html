@@ -22,13 +22,7 @@
       </div>
     </div>
     <div>
-      <swiper-container
-        #swiperRef
-        loop="false"
-        navigation="false"
-        space-between="15"
-        [breakpoints]="breakpointsConfig"
-      >
+      <swiper-container #swiperRef loop="false" navigation="false" space-between="15">
         @for (product of products(); track product.id) {
           <swiper-slide>
             <app-product-card
