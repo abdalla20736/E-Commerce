@@ -28,7 +28,7 @@ export const serverRoutes: ServerRoute[] = [
 
   {
     path: 'products/:id',
-    renderMode: RenderMode.Server,
+    renderMode: RenderMode.Client,
   },
   {
     path: 'categories/:id',
