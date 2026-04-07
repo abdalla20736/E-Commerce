@@ -1,6 +1,7 @@
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  effect,
   ElementRef,
   inject,
   input,
@@ -25,7 +26,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   host: { ngSkipHydration: 'true' },
 })
-export class SimilarCategoryProductsSliderComponent implements OnInit {
+export class SimilarCategoryProductsSliderComponent {
   private readonly productService: ProductService = inject(ProductService);
   private readonly wishlistService: WishlistService = inject(WishlistService);
   private readonly authService: AuthService = inject(AuthService);
@@ -54,13 +55,15 @@ export class SimilarCategoryProductsSliderComponent implements OnInit {
   };
 
   @ViewChild('swiperRef') swiperRef!: ElementRef<SwiperContainer>;
+  constructor() {
+    effect(() => {
+      const categoryId = this.product()?.category?._id;
 
-  ngOnInit(): void {
-    const categoryId = this.product()?.category?._id ?? '';
-    if (categoryId) {
-      this.loadproductsByCategory(categoryId);
-      this.loadWishlist();
-    }
+      if (categoryId) {
+        this.loadproductsByCategory(categoryId);
+        this.loadWishlist();
+      }
+    });
   }
 
   nextProduct(): void {
@@ -79,6 +82,7 @@ export class SimilarCategoryProductsSliderComponent implements OnInit {
       next: (response) => {
         const products = response.data.filter((p) => p._id != this.product()?._id);
         this.products.set(products);
+        console.log(response.data);
       },
     });
   }
