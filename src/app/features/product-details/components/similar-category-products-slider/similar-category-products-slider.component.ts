@@ -82,7 +82,6 @@ export class SimilarCategoryProductsSliderComponent {
       next: (response) => {
         const products = response.data.filter((p) => p._id != this.product()?._id);
         this.products.set(products);
-        console.log(response.data);
       },
     });
   }
